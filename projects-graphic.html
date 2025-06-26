@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Graphic Design Projects</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .category-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      background: linear-gradient(90deg, #2d6cdf 0%, #6ec6ff 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 2.5rem 1.5rem 2rem 1.5rem;
+      margin: 2.5rem auto 2rem auto;
+      max-width: 700px;
+      box-shadow: 0 4px 32px rgba(45,108,223,0.10);
+      text-align: center;
+      flex-direction: column;
+    }
+    .category-header .icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .category-header h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .category-header p {
+      font-size: 1.1rem;
+      color: #e3f0ff;
+      margin-bottom: 0;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 0 auto 2rem auto;
+      background: #e3f0ff;
+      color: #2d6cdf;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(45,108,223,0.07);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .back-link:hover {
+      background: #2d6cdf;
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+    }
+    .projects-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.2rem;
+      max-width: 900px;
+      margin: 0 auto 3rem auto;
+      padding: 0 1rem;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(45,108,223,0.09);
+      padding: 2.2rem 1.2rem 1.2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.22s, transform 0.22s;
+      position: relative;
+      overflow: hidden;
+      min-height: 140px;
+      animation: fadeInTile 0.7s;
+    }
+    .project-card:hover {
+      box-shadow: 0 8px 32px rgba(45,108,223,0.17);
+      transform: translateY(-6px) scale(1.03);
+    }
+    .project-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #2d6cdf;
+      margin-bottom: 0.7rem;
+    }
+    .project-desc {
+      text-align: left;
+      width: 100%;
+      color: #444;
+      font-size: 0.98em;
+      font-weight: 400;
+      opacity: 0.92;
+      margin-top: 0.7em;
+    }
+    .project-date {
+      font-size: 0.98rem;
+      color: #888;
+      margin-top: auto;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 600px) {
+      .category-header {
+        padding: 1.5rem 0.5rem 1.2rem 0.5rem;
+      }
+      .projects-list {
+        gap: 1.1rem;
+      }
+      .project-card {
+        padding: 1.2rem 0.7rem 0.9rem 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">MyPortfolio</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown open">
+        <a href="projects.html" class="dropdown-toggle" tabindex="0">Projects <span class="arrow">▼</span></a>
+        <ul class="dropdown-content">
+          <li><a href="projects-graphic.html">Graphic Design</a></li>
+          <li><a href="projects-uiux.html">UI/UX Design</a></li>
+          <li><a href="projects-web.html">Web Development</a></li>
+          <li><a href="projects-game.html">Game Development</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="profile.html" class="dropdown-toggle" tabindex="0">Profile <span class="arrow">▼</span></a>
+        <ul class="dropdown-content">
+          <li><a href="profile-about.html">About Me</a></li>
+          <li><a href="profile-contact.html">Contact</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <main>
+    <section class="category-header">
+      <div class="icon">🎨</div>
+      <h1>Graphic Design Projects</h1>
+      <p>A showcase of my graphic design work.</p>
+    </section>
+    <section>
+      <div class="projects-list">
+        <div class="project-card">
+          <div class="project-title">Poster Design</div>
+          <div class="project-date">2024-03-10</div>
+          <div class="project-desc">A vibrant poster created for a college tech fest.</div>
+        </div>
+        <div class="project-card">
+          <div class="project-title">Logo Design</div>
+          <div class="project-date">2024-02-05</div>
+          <div class="project-desc">A modern logo designed for a startup brand.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Aman Kumar. All rights reserved.</p>
+  </footer>
+
+  <style>
+    .modal-actions button {
+      background: #2d6cdf;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.7rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin: 0 0.2rem;
+      box-shadow: 0 2px 8px rgba(45,108,223,0.07);
+    }
+    .modal-actions button:disabled {
+      background: #bfc9d9;
+      cursor: not-allowed;
+    }
+    .modal-actions button:hover:not(:disabled) {
+      background: #174ea6;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #e94f7c;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .modal-close:hover {
+      background: #b91c4b;
+    }
+  </style>
+  <script src="scripts/main.js"></script>
+
+  <!-- Modal Popup -->
+  <div class="modal-backdrop" id="modalBackdrop" style="display:none;align-items:center;justify-content:center;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.25);z-index:1000;">
+    <div class="modal" id="projectModal" style="background:#fff;border-radius:18px;box-shadow:0 8px 32px rgba(45,108,223,0.18);padding:2.2rem 2rem 1.5rem 2rem;min-width:320px;max-width:95vw;max-height:90vh;position:relative;text-align:center;">
+      <button class="modal-close" id="modalClose" style="position:absolute;top:1rem;right:1rem;background:#e94f7c;color:#fff;border:none;border-radius:50%;width:28px;height:28px;font-size:1.1rem;cursor:pointer;transition:background 0.2s;">&times;</button>
+      <div class="project-title" id="modalTitle" style="font-size:1.3rem;font-weight:700;color:#2d6cdf;margin-bottom:0.5rem;"></div>
+      <div class="project-date" id="modalDate" style="font-size:1.05em;color:#444;font-weight:400;opacity:0.92;margin-bottom:1.5rem;"></div>
+      <div class="modal-actions" style="display:flex;gap:1.2rem;justify-content:center;">
+        <button id="modalView" target="_blank">View</button>
+        <button id="modalSource" target="_blank">View Source</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Add click event to all project cards
+    document.querySelectorAll('.project-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var title = card.querySelector('.project-title').textContent;
+        var date = card.querySelector('.project-date').textContent;
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalDate').textContent = date;
+        // You can set these URLs dynamically if you store them in your data
+        document.getElementById('modalView').onclick = function() { alert('Demo link not set.'); };
+        document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
+        document.getElementById('modalBackdrop').style.display = 'flex';
+      });
+    });
+    document.getElementById('modalClose').onclick = function() {
+      document.getElementById('modalBackdrop').style.display = 'none';
+    };
+    document.getElementById('modalBackdrop').onclick = function(e) {
+      if (e.target === this) this.style.display = 'none';
+    };
+  </script>
+</body>
+</html>

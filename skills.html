@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Skills</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">MyPortfolio</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li class="dropdown">
+        <a href="projects.html" class="dropdown-toggle" tabindex="0">Projects <span class="arrow">▼</span></a>
+        <ul class="dropdown-content">
+          <li><a href="projects-graphic.html">Graphic Design</a></li>
+          <li><a href="projects-uiux.html">UI/UX Design</a></li>
+          <li><a href="projects-web.html">Web Development</a></li>
+          <li><a href="projects-game.html">Game Development</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="profile.html" class="dropdown-toggle" tabindex="0">Profile <span class="arrow">▼</span></a>
+        <ul class="dropdown-content">
+          <li><a href="profile-about.html">About Me</a></li>
+          <li><a href="profile-contact.html">Contact</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <main>
+    <section class="skills-section">
+      <h2 class="skills-title">My Skills</h2>
+      <div class="skills-cards">
+        <div class="skill-card web">
+          <h3>Web Development</h3>
+          <ul>
+            <li>HTML5 & CSS3</li>
+            <li>JavaScript (ES6+)</li>
+            <li>React.js, Next.js</li>
+            <li>Node.js, Express</li>
+            <li>REST APIs</li>
+            <li>Responsive Design</li>
+            <li>Git & GitHub</li>
+          </ul>
+        </div>
+        <div class="skill-card uiux">
+          <h3>UI/UX Design</h3>
+          <ul>
+            <li>Figma, Adobe XD</li>
+            <li>User Research</li>
+            <li>Wireframing & Prototyping</li>
+            <li>Design Systems</li>
+            <li>Interaction Design</li>
+            <li>Usability Testing</li>
+          </ul>
+        </div>
+        <div class="skill-card graphic">
+          <h3>Graphic Design</h3>
+          <ul>
+            <li>Adobe Photoshop</li>
+            <li>Adobe Illustrator</li>
+            <li>Branding & Identity</li>
+            <li>Poster & Banner Design</li>
+            <li>Photo Manipulation</li>
+            <li>Typography</li>
+          </ul>
+        </div>
+        <div class="skill-card game">
+          <h3>Game Development</h3>
+          <ul>
+            <li>Unity (C#)</li>
+            <li>Godot</li>
+            <li>Game Design</li>
+            <li>2D/3D Animation</li>
+            <li>Level Design</li>
+            <li>Asset Integration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Aman Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

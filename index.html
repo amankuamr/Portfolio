@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Home</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">MyPortfolio</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li class="dropdown">
+        <a href="projects.html" class="dropdown-toggle" tabindex="0">Projects <span class="arrow">▼</span></a>
+        <ul class="dropdown-content">
+          <li><a href="projects-graphic.html">Graphic Design</a></li>
+          <li><a href="projects-uiux.html">UI/UX Design</a></li>
+          <li><a href="projects-web.html">Web Development</a></li>
+          <li><a href="projects-game.html">Game Development</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="profile.html" class="dropdown-toggle" tabindex="0">Profile <span class="arrow">▼</span></a>
+        <ul class="dropdown-content">
+          <li><a href="profile-about.html">About Me</a></li>
+          <li><a href="profile-contact.html">Contact</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <img src="images/person.png" alt="Profile" class="hero-img" />
+      <div class="hero-content">
+        <h1>Hello, I'm Aman Kumar</h1>
+        <p class="bio">A passionate designer & developer crafting modern digital experiences. I specialize in graphic design, UI/UX, web, and game development.</p>
+        <div class="social-icons">
+          <a href="#" class="icon linkedin" title="LinkedIn" target="_blank">
+            <svg width="24" height="24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
+          </a>
+          <a href="#" class="icon instagram" title="Instagram" target="_blank">
+            <svg width="24" height="24" fill="currentColor"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.86.7-1.45.92-.46.17-1.26.354-2.43.41-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.41-.59-.22-1.01-.48-1.45-.92-.44-.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43-.058-1.266-.07-1.65-.07-4.85s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41 1.266-.058 1.65-.07 4.85-.07zm0-2.2c-3.259 0-3.667.012-4.947.07-1.276.058-2.147.24-2.89.51-.8.29-1.48.68-2.15 1.35-.67.67-1.06 1.35-1.35 2.15-.27.74-.452 1.614-.51 2.89-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.058 1.276.24 2.147.51 2.89.29.8.68 1.48 1.35 2.15.67.67 1.35 1.06 2.15 1.35.74.27 1.614.452 2.89.51 1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.276-.058 2.147-.24 2.89-.51.8-.29 1.48-.68 2.15-1.35.67-.67 1.06-1.35 1.35-2.15.27-.74.452-1.614.51-2.89.058-1.28.07-1.688.07-4.947s-.012-3.667-.07-4.947c-.058-1.276-.24-2.147-.51-2.89-.29-.8-.68-1.48-1.35-2.15-.67-.67-1.35-1.06-2.15-1.35-.74-.27-1.614-.452-2.89-.51-1.28-.058-1.688-.07-4.947-.07z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.4" cy="5.6" r="1.44"/></svg>
+          </a>
+          <a href="mailto:your.email@gmail.com" class="icon gmail" title="Gmail" target="_blank">
+            <svg width="24" height="24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20v-9.99l7.99 7.99c.39.39 1.02.39 1.41 0L20 10.01V20H4z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="tiles-grid fixed-2x2">
+      <a class="tile" href="projects-graphic.html">
+        <span class="tile-icon">🎨</span>
+        Graphic Design
+      </a>
+      <a class="tile" href="projects-uiux.html">
+        <span class="tile-icon">🖌️</span>
+        UI/UX Design
+      </a>
+      <a class="tile" href="projects-web.html">
+        <span class="tile-icon">💻</span>
+        Web Development
+      </a>
+      <a class="tile" href="projects-game.html">
+        <span class="tile-icon">🎮</span>
+        Game Development
+      </a>
+    </section>
+
+    <section class="recent-projects">
+      <h2>Recent Projects</h2>
+      <div class="projects-list six-projects">
+        <div class="project-card" data-title="Cognite" data-desc="A modern chatting app for real-time conversations." data-tag="Web Development">
+          <span class="project-icon">💬</span>
+          Cognite
+          <span class="project-tag web">Web Development</span>
+          <div class="project-desc">A modern chatting app for real-time conversations.</div>
+        </div>
+        <div class="project-card" data-title="ShotChat" data-desc="A Twitter-type clone with added chatting features." data-tag="Web Development">
+          <span class="project-icon">🐦</span>
+          ShotChat
+          <span class="project-tag web">Web Development</span>
+          <div class="project-desc">A Twitter-type clone with added chatting features.</div>
+        </div>
+        <div class="project-card" data-title="Password Manager" data-desc="A secure web app for managing and generating passwords." data-tag="Web Development">
+          <span class="project-icon">🔒</span>
+          Password Manager
+          <span class="project-tag web">Web Development</span>
+          <div class="project-desc">A secure web app for managing and generating passwords.</div>
+        </div>
+        <div class="project-card" data-title="File Format Converter" data-desc="A web app to convert files between various formats." data-tag="Web Development">
+          <span class="project-icon">🔄</span>
+          File Format Converter
+          <span class="project-tag web">Web Development</span>
+          <div class="project-desc">A web app to convert files between various formats.</div>
+        </div>
+        <div class="project-card" data-title="Poster for Tech Fest" data-desc="A vibrant poster designed for a college tech fest." data-tag="Graphic Design">
+          <span class="project-icon">🖼️</span>
+          Poster for Tech Fest
+          <span class="project-tag graphic">Graphic Design</span>
+          <div class="project-desc">A vibrant poster designed for a college tech fest.</div>
+        </div>
+        <div class="project-card" data-title="Boarding School UI/UX" data-desc="A user-friendly interface and experience for a boarding school platform." data-tag="UI/UX Design">
+          <span class="project-icon">🏫</span>
+          Boarding School UI/UX
+          <span class="project-tag uiux">UI/UX Design</span>
+          <div class="project-desc">A user-friendly interface and experience for a boarding school platform.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Modal Popup -->
+    <div id="projectModal" class="modal-overlay" style="display:none;">
+      <div class="modal-content">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <h3 id="modalTitle"></h3>
+        <div class="modal-tag" id="modalTag"></div>
+        <div class="modal-desc" id="modalDesc"></div>
+        <div class="modal-actions">
+          <button class="modal-btn view-btn">View</button>
+          <button class="modal-btn source-btn">View Source</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Aman Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script>
+    // Modal logic for project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const title = this.getAttribute('data-title');
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalDesc').textContent = this.getAttribute('data-desc');
+        document.getElementById('modalTag').textContent = this.getAttribute('data-tag');
+        // Set View button link for Cognite
+        const viewBtn = document.querySelector('.modal-btn.view-btn');
+        if (title === 'Cognite') {
+          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/cognite/', '_blank'); };
+        } else if (title === 'ShotChat') {
+          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/shotchat/', '_blank'); };
+        } else if (title === 'Password Manager') {
+          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/password-manager/', '_blank'); };
+        } else if (title === 'File Format Converter') {
+          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/converter/', '_blank'); };
+        } else {
+          viewBtn.onclick = function() { alert('Demo link not set.'); };
+        }
+        document.getElementById('projectModal').style.display = 'flex';
+      });
+    });
+    document.getElementById('modalClose').onclick = function() {
+      document.getElementById('projectModal').style.display = 'none';
+    };
+    window.onclick = function(event) {
+      if (event.target === document.getElementById('projectModal')) {
+        document.getElementById('projectModal').style.display = 'none';
+      }
+    };
+  </script>
+</body>
+</html>
