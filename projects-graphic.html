@@ -112,7 +112,19 @@
       }
       .project-card {
         padding: 1.2rem 0.7rem 0.9rem 0.7rem;
+        /* Simple fade-in animation for mobile */
+        animation: simpleFadeIn 0.7s;
+        transition: none !important;
       }
+      .project-card:hover {
+        /* Remove hover animation on mobile */
+        box-shadow: none !important;
+        transform: none !important;
+      }
+    }
+    @keyframes simpleFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
