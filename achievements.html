@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Game Development Projects</title>
+  <title>Portfolio | Achievements</title>
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    .category-header {
+    .achievements-header {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 1rem;
-      background: linear-gradient(90deg, #fc5c7d 0%, #6a82fb 100%);
+      background: linear-gradient(90deg, #f7971e 0%, #ffd200 100%);
       color: #fff;
       border-radius: 18px;
       padding: 2.5rem 1.5rem 2rem 1.5rem;
@@ -24,39 +24,22 @@
       text-align: center;
       flex-direction: column;
     }
-    .category-header .icon {
+    .achievements-header .icon {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
     }
-    .category-header h1 {
+    .achievements-header h1 {
       font-size: 2.1rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
       color: #fff;
     }
-    .category-header p {
+    .achievements-header p {
       font-size: 1.1rem;
-      color: #e3f0ff;
+      color: #fffbe6;
       margin-bottom: 0;
     }
-    .back-link {
-      display: inline-block;
-      margin: 0 auto 2rem auto;
-      background: #e3f0ff;
-      color: #fc5c7d;
-      padding: 0.7rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(45,108,223,0.07);
-      transition: background 0.2s, color 0.2s, transform 0.2s;
-    }
-    .back-link:hover {
-      background: #fc5c7d;
-      color: #fff;
-      transform: translateY(-2px) scale(1.04);
-    }
-    .projects-list {
+    .achievements-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2.2rem;
@@ -64,7 +47,7 @@
       margin: 0 auto 3rem auto;
       padding: 0 1rem;
     }
-    .project-card {
+    .achievement-card {
       background: #fff;
       border-radius: 16px;
       box-shadow: 0 2px 16px rgba(45,108,223,0.09);
@@ -75,33 +58,43 @@
       transition: box-shadow 0.22s, transform 0.22s;
       position: relative;
       overflow: hidden;
-      min-height: 140px;
+      min-height: 120px;
+      cursor: pointer;
       animation: fadeInTile 0.7s;
     }
-    .project-card:hover {
+    .achievement-card:hover {
       box-shadow: 0 8px 32px rgba(45,108,223,0.17);
       transform: translateY(-6px) scale(1.03);
     }
-    .project-title {
+    .achievement-title {
       font-size: 1.18rem;
       font-weight: 700;
-      color: #fc5c7d;
+      color: #f7971e;
       margin-bottom: 0.7rem;
     }
-    .project-date {
+    .achievement-date {
       font-size: 0.98rem;
       color: #888;
-      margin-top: auto;
+      margin-bottom: 0.5rem;
       letter-spacing: 0.5px;
     }
+    .achievement-desc {
+      text-align: left;
+      width: 100%;
+      color: #444;
+      font-size: 0.98em;
+      font-weight: 400;
+      opacity: 0.92;
+      margin-top: 0.3em;
+    }
     @media (max-width: 600px) {
-      .category-header {
+      .achievements-header {
         padding: 1.5rem 0.5rem 1.2rem 0.5rem;
       }
-      .projects-list {
+      .achievements-list {
         gap: 1.1rem;
       }
-      .project-card {
+      .achievement-card {
         padding: 1.2rem 0.7rem 0.9rem 0.7rem;
       }
     }
@@ -137,34 +130,38 @@
   </nav>
 
   <main>
-    <section class="category-header">
-      <div class="icon">🎮</div>
-      <h1>Game Development Projects</h1>
-      <p>A showcase of my game development work.</p>
+    <section class="achievements-header">
+      <div class="icon">🏆</div>
+      <h1>Achievements</h1>
+      <p>A showcase of my notable achievements.</p>
     </section>
     <section>
-      <div class="projects-list">
-        <div class="project-card">
-          <div class="project-title">Puzzle Adventure Game</div>
-          <div class="project-date">2024-02-20</div>
+      <div class="achievements-list">
+        <div class="achievement-card" data-title="GDSC Core Graphics Design Member" data-date="2023-09-01" data-desc="Selected as a core member for graphics design in the Google Developer Student Clubs, contributing to event branding and visual content.">
+          <div class="achievement-title">GDSC Core Graphics Design Member</div>
+          <div class="achievement-date">2023-09-01</div>
+          <div class="achievement-desc">Selected as a core member for graphics design in the Google Developer Student Clubs, contributing to event branding and visual content.</div>
         </div>
-        <div class="project-card">
-          <div class="project-title">2D Platformer Demo</div>
-          <div class="project-date">2023-09-12</div>
+        <div class="achievement-card" data-title="Plasmid UI/UX Internship" data-date="2024-01-15" data-desc="Completed a UI/UX internship at Plasmid, recognized for outstanding design solutions and user research.">
+          <div class="achievement-title">Plasmid UI/UX Internship</div>
+          <div class="achievement-date">2024-01-15</div>
+          <div class="achievement-desc">Completed a UI/UX internship at Plasmid, recognized for outstanding design solutions and user research.</div>
         </div>
-        <div class="project-card">
-          <div class="project-title">Endless Runner Prototype</div>
-          <div class="project-date">2023-05-01</div>
+        <div class="achievement-card" data-title="UX Experience Google Course" data-date="2023-06-10" data-desc="Completed the Google UX Experience course, demonstrating strong skills in user experience design and prototyping.">
+          <div class="achievement-title">UX Experience Google Course</div>
+          <div class="achievement-date">2023-06-10</div>
+          <div class="achievement-desc">Completed the Google UX Experience course, demonstrating strong skills in user experience design and prototyping.</div>
         </div>
-        <div class="project-card">
-          <div class="project-title">Arcade Shooter</div>
-          <div class="project-date">2023-01-18</div>
+        <div class="achievement-card" data-title="Tech Pragati Tech Fest Lead Graphics Designer" data-date="2024-02-20" data-desc="Led the graphics design team for Tech Pragati Tech Fest, creating event branding, posters, and digital assets for a successful college festival.">
+          <div class="achievement-title">Tech Pragati Tech Fest Lead Graphics Designer</div>
+          <div class="achievement-date">2024-02-20</div>
+          <div class="achievement-desc">Led the graphics design team for Tech Pragati Tech Fest, creating event branding, posters, and digital assets for a successful college festival.</div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer-modern footer-game">
+  <footer class="footer-modern footer-achievements">
     <div class="footer-container">
       <div class="footer-about">
         <h3>About</h3>
@@ -204,71 +201,41 @@
     </div>
   </footer>
 
-  <style>
-    .modal-actions button {
-      background: #2d6cdf;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 0.6rem 1.7rem;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-      margin: 0 0.2rem;
-      box-shadow: 0 2px 8px rgba(45,108,223,0.07);
-    }
-    .modal-actions button:disabled {
-      background: #bfc9d9;
-      cursor: not-allowed;
-    }
-    .modal-actions button:hover:not(:disabled) {
-      background: #174ea6;
-    }
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: #e94f7c;
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 28px;
-      height: 28px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .modal-close:hover {
-      background: #b91c4b;
-    }
-  </style>
-  <script src="scripts/main.js"></script>
-
   <!-- Modal Popup -->
   <div class="modal-backdrop" id="modalBackdrop" style="display:none;align-items:center;justify-content:center;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.25);z-index:1000;">
-    <div class="modal" id="projectModal" style="background:#fff;border-radius:18px;box-shadow:0 8px 32px rgba(45,108,223,0.18);padding:2.2rem 2rem 1.5rem 2rem;min-width:320px;max-width:95vw;max-height:90vh;position:relative;text-align:center;">
+    <div class="modal" id="achievementModal" style="background:#fff;border-radius:18px;box-shadow:0 8px 32px rgba(45,108,223,0.18);padding:2.2rem 2rem 1.5rem 2rem;min-width:320px;max-width:95vw;max-height:90vh;position:relative;text-align:center;">
       <button class="modal-close" id="modalClose" style="position:absolute;top:1rem;right:1rem;background:#e94f7c;color:#fff;border:none;border-radius:50%;width:28px;height:28px;font-size:1.1rem;cursor:pointer;transition:background 0.2s;">&times;</button>
-      <div class="project-title" id="modalTitle" style="font-size:1.3rem;font-weight:700;color:#2d6cdf;margin-bottom:0.5rem;"></div>
-      <div class="project-date" id="modalDate" style="font-size:1.05em;color:#444;font-weight:400;opacity:0.92;margin-bottom:1.5rem;"></div>
+      <div class="achievement-title" id="modalTitle" style="font-size:1.3rem;font-weight:700;color:#f7971e;margin-bottom:1.2rem;"></div>
       <div class="modal-actions" style="display:flex;gap:1.2rem;justify-content:center;">
-        <button id="modalView" target="_blank">View</button>
-        <button id="modalSource" target="_blank">View Source</button>
+        <button id="modalView" style="background:#f7971e;color:#fff;border:none;border-radius:8px;padding:0.6rem 1.7rem;font-size:1rem;font-weight:600;cursor:pointer;transition:background 0.2s;box-shadow:0 2px 8px rgba(45,108,223,0.07);">View</button>
       </div>
     </div>
   </div>
+  <script src="scripts/main.js"></script>
   <script>
-    // Add click event to all project cards
-    document.querySelectorAll('.project-card').forEach(function(card) {
+    // Add click event to all achievement cards
+    document.querySelectorAll('.achievement-card').forEach(function(card) {
       card.addEventListener('click', function() {
-        var title = card.querySelector('.project-title').textContent;
-        var date = card.querySelector('.project-date').textContent;
+        var title = card.getAttribute('data-title');
         document.getElementById('modalTitle').textContent = title;
-        document.getElementById('modalDate').textContent = date;
-        // You can set these URLs dynamically if you store them in your data
-        document.getElementById('modalView').onclick = function() { alert('Demo link not set.'); };
-        document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
         document.getElementById('modalBackdrop').style.display = 'flex';
+        if (title === 'GDSC Core Graphics Design Member') {
+          document.getElementById('modalView').onclick = function() {
+            window.open('https://drive.google.com/file/d/10L83ME1laF5QwwH5xnMHg3vkTWKPzMFs/view?usp=drive_link', '_blank');
+          };
+        } else if (title === 'UX Experience Google Course') {
+          document.getElementById('modalView').onclick = function() {
+            window.open('https://drive.google.com/file/d/1YCeSp9HQF4FZvwqevSDU5QeL0N1dhv8K/view?usp=drive_link', '_blank');
+          };
+        } else if (title === 'Plasmid UI/UX Internship') {
+          document.getElementById('modalView').onclick = function() {
+            window.open('https://drive.google.com/file/d/1tmveniuB3PazQ7q0VhHLnBSSzqRVUk8P/view?usp=drive_link', '_blank');
+          };
+        } else {
+          document.getElementById('modalView').onclick = function() {
+            alert('View action for: ' + title);
+          };
+        }
       });
     });
     document.getElementById('modalClose').onclick = function() {

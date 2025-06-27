@@ -27,6 +27,14 @@ document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
   });
 });
 
+// Close dropdown when a dropdown link is clicked
+// (prevents dropdown staying open after navigation)
+document.querySelectorAll('.dropdown-content a').forEach(link => {
+  link.addEventListener('click', function() {
+    document.querySelectorAll('.dropdown').forEach(drop => drop.classList.remove('open'));
+  });
+});
+
 // Close dropdowns when clicking outside
 window.addEventListener('click', function(e) {
   document.querySelectorAll('.dropdown').forEach(drop => {
