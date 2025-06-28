@@ -8,11 +8,190 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<style>
+  <style>
+    html, body {
+      width: 100vw;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: radial-gradient(ellipse at 60% 40%, #f3e7ff 0%, #e3e6ff 60%, #f7f7fa 100%) !important;
+    }
+    main {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
     * {
       user-select: none;
       -webkit-user-select: none;
       -ms-user-select: none;
+    }
+    .skills-hero {
+      position: relative;
+      min-height: 40vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 1;
+      box-sizing: border-box;
+      animation: heroFadeIn 1.2s cubic-bezier(.23,1.01,.32,1) 0.1s both;
+      background: none;
+    }
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(40px) scale(0.98); }
+      to { opacity: 1; transform: none; }
+    }
+    .skills-hero-inner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      z-index: 1;
+      width: 100%;
+      max-width: 900px;
+      min-height: 220px;
+      padding: 0 2rem;
+      box-sizing: border-box;
+      background: none;
+    }
+    .skills-hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      letter-spacing: -1.2px;
+      color: #2a254d;
+      text-shadow: 0 2px 12px rgba(120,115,245,0.08);
+      text-align: center;
+    }
+    .skills-hero-desc {
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #3d375a;
+      text-align: center;
+      max-width: 600px;
+    }
+    .skills-cards-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      width: 100vw;
+    }
+    .skills-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 2.5rem;
+      max-width: 700px;
+      margin: 0 auto 3.5rem auto;
+      padding: 0 1rem;
+      box-sizing: border-box;
+      min-height: 0;
+    }
+    .skills-cards-grid > .skill-card:nth-child(3),
+    .skills-cards-grid > .skill-card:nth-child(4) {
+      margin-bottom: 1.8rem;
+    }
+    .skill-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(120,115,245,0.10), 0 1px 4px rgba(0,0,0,0.06);
+      padding: 1.1rem 0.9rem 0.9rem 0.9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.22s, transform 0.22s, border 0.22s;
+      position: relative;
+      border-top: 5px solid #7873f5;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+      overflow: visible;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .skill-card.web { border-top-color: #7873f5; }
+    .skill-card.uiux { border-top-color: #ff6ec4; }
+    .skill-card.graphic { border-top-color: #42e695; }
+    .skill-card.game { border-top-color: #ffb347; }
+    .skill-card:hover {
+      box-shadow: 0 8px 32px rgba(120,115,245,0.18);
+      transform: translateY(-4px) scale(1.03);
+      border-top-width: 7px;
+    }
+    .skill-badge {
+      position: absolute;
+      top: -28px;
+      left: 18px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #f3e7ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(120,115,245,0.10);
+      border: 3px solid #fff;
+      z-index: 2;
+      font-size: 2.1rem;
+      transition: background 0.22s, transform 0.22s;
+    }
+    .skill-badge.web { background: linear-gradient(135deg, #7873f5 60%, #f3e7ff 100%); color: #fff; }
+    .skill-badge.uiux { background: linear-gradient(135deg, #ff6ec4 60%, #f3e7ff 100%); color: #fff; }
+    .skill-badge.graphic { background: linear-gradient(135deg, #42e695 60%, #f3e7ff 100%); color: #fff; }
+    .skill-badge.game { background: linear-gradient(135deg, #ffb347 60%, #f3e7ff 100%); color: #fff; }
+    .skill-card:hover .skill-badge {
+      transform: scale(1.08) rotate(-6deg);
+      background: #fff;
+      color: #7873f5;
+    }
+    .skill-icon {
+      font-size: 2rem;
+      margin: 0;
+      display: block;
+      z-index: 2;
+      transition: transform 0.22s;
+    }
+    .skill-card h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin: 1.5rem 0 0.7rem 0;
+      color: #2a254d;
+      letter-spacing: -0.5px;
+      z-index: 1;
+    }
+    .skill-card ul {
+      padding-left: 1.1rem;
+      margin: 0;
+      color: #3d375a;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      z-index: 1;
+    }
+    @media (max-width: 900px) {
+      .skills-cards-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1.2rem;
+        min-height: 0;
+      }
+      .skills-hero-title { font-size: 2rem; }
+    }
+    @media (max-width: 700px) {
+      .skills-cards-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        gap: 1.1rem;
+        padding: 0 0.2rem;
+      }
+      .skill-card { padding: 1.2rem 0.8rem; min-height: 0; }
+      .skills-hero-title { font-size: 1.4rem; }
+      .skills-hero-desc { font-size: 1rem; }
     }
     .nav-logo {
       position: relative;
@@ -91,44 +270,53 @@
   </nav>
 
   <main>
-    <section class="skills-section">
-      <h2 class="skills-title">My Skills</h2>
-      <div class="skills-cards">
+    <section class="skills-hero">
+      <div class="skills-hero-inner">
+        <h1 class="skills-hero-title">My Skills</h1>
+        <p class="skills-hero-desc">A multi-disciplinary skillset across design and development. I create modern, user-centric digital experiences in web, UI/UX, graphics, and games.</p>
+      </div>
+    </section>
+    <section class="skills-cards-section">
+      <div class="skills-cards-grid">
         <div class="skill-card web">
+          <div class="skill-badge web"><span class="skill-icon">💻</span></div>
           <h3>Web Development</h3>
           <ul>
-            <li>HTML5 & CSS3</li>
+            <li>HTML5 &amp; CSS3</li>
             <li>JavaScript (ES6+)</li>
             <li>React.js, Next.js</li>
             <li>Node.js, Express</li>
             <li>REST APIs</li>
             <li>Responsive Design</li>
-            <li>Git & GitHub</li>
+            <li>Git &amp; GitHub</li>
           </ul>
         </div>
         <div class="skill-card uiux">
+          <div class="skill-badge uiux"><span class="skill-icon">🖌️</span></div>
           <h3>UI/UX Design</h3>
           <ul>
             <li>Figma, Adobe XD</li>
             <li>User Research</li>
-            <li>Wireframing & Prototyping</li>
+            <li>Wireframing &amp; Prototyping</li>
             <li>Design Systems</li>
             <li>Interaction Design</li>
             <li>Usability Testing</li>
           </ul>
         </div>
         <div class="skill-card graphic">
+          <div class="skill-badge graphic"><span class="skill-icon">🎨</span></div>
           <h3>Graphic Design</h3>
           <ul>
             <li>Adobe Photoshop</li>
             <li>Adobe Illustrator</li>
-            <li>Branding & Identity</li>
-            <li>Poster & Banner Design</li>
+            <li>Branding &amp; Identity</li>
+            <li>Poster &amp; Banner Design</li>
             <li>Photo Manipulation</li>
             <li>Typography</li>
           </ul>
         </div>
         <div class="skill-card game">
+          <div class="skill-badge game"><span class="skill-icon">🎮</span></div>
           <h3>Game Development</h3>
           <ul>
             <li>Unity (C#)</li>
@@ -147,7 +335,7 @@
     <div class="footer-container">
       <div class="footer-about">
         <h3>About</h3>
-        <p>Passionate designer & developer crafting modern digital experiences. Specialized in graphic design, UI/UX, web, and game development.</p>
+        <p>Passionate designer &amp; developer crafting modern digital experiences. Specialized in graphic design, UI/UX, web, and game development.</p>
       </div>
       <div class="footer-links">
         <h3>Quick Links</h3>
@@ -167,7 +355,7 @@
         <h3>Connect</h3>
         <div class="footer-social-icons">
           <a href="#" class="icon linkedin" title="LinkedIn" target="_blank"><svg width="24" height="24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg></a>
-          <a href="#" class="icon instagram" title="Instagram" target="_blank"><svg width="24" height="24" fill="currentColor"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.86.7-1.45.92-.46.17-1.26.354-2.43.41-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.41-.59-.22-1.01-.48-1.45-.92-.44-.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43-.058-1.266-.07-1.65-.07-4.85s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41 1.266-.058 1.65-.07 4.85-.07zm0-2.2c-3.259 0-3.667.012-4.947.07-1.276.058-2.147.24-2.89.51-.8.29-1.48.68-2.15 1.35-.67.67-1.06 1.35-1.35 2.15-.27.74-.452 1.614-.51 2.89-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.058 1.276.24 2.147.51 2.89.29.8.68 1.48 1.35 2.15.67.67 1.35 1.06 2.15 1.35.74.27 1.614.452 2.89.51 1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.276-.058 2.147-.24 2.89-.51.8-.29 1.48-.68 2.15-1.35.67-.67 1.06-1.35 1.35-2.15.27-.74.452-1.614.51-2.89.058-1.28.07-1.688.07-4.947s-.012-3.667-.07-4.947c-.058-1.276-.24-2.147-.51-2.89-.29-.8-.68-1.48-1.35-2.15-.67-.67-1.35-1.06-2.15-1.35-.74-.27-1.614-.452-2.89-.51-1.28-.058-1.688-.07-4.947-.07z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.4" cy="5.6" r="1.44"/></svg></a>
+          <a href="#" class="icon instagram" title="Instagram" target="_blank"><svg width="24" height="24" fill="currentColor"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.86.7-1.45.92-.46.17-1.26.354-2.43.41-1.266.058-1.65.07-4.85.07zm0-2.2c-3.259 0-3.667.012-4.947.07-1.276.058-2.147.24-2.89.51-.8.29-1.48.68-2.15 1.35-.67.67-1.06 1.35-1.35 2.15-.27.74-.452 1.614-.51 2.89-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.058 1.276.24 2.147.51 2.89.29.8.68 1.48 1.35 2.15.67.67 1.35 1.06 2.15 1.35.74.27 1.614.452 2.89.51 1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.276-.058 2.147-.24 2.89-.51.8-.29 1.48-.68 2.15-1.35.67-.67 1.06-1.35 1.35-2.15.27-.74.452-1.614.51-2.89.058-1.28.07-1.688.07-4.947s-.012-3.667-.07-4.947c-.058-1.276-.24-2.147-.51-2.89-.29-.8-.68-1.48-1.35-2.15-.67-.67-1.35-1.06-2.15-1.35-.74-.27-1.614-.452-2.89-.51-1.28-.058-1.688-.07-4.947-.07z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.4" cy="5.6" r="1.44"/></svg></a>
           <a href="mailto:amankumar1948sahu@gmail.com" class="icon gmail" title="Gmail" target="_blank"><svg width="24" height="24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20v-9.99l7.99 7.99c.39.39 1.02.39 1.41 0L20 10.01V20H4z"/></svg></a>
           <a href="https://github.com/amankuamr" class="icon github" title="GitHub" target="_blank"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.468-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.984-.399 3.003-.404 1.018.005 2.046.138 3.006.404 2.289-1.552 3.295-1.23 3.295-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.371.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .321.218.694.825.576C20.565 21.796 24 17.299 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
         </div>
