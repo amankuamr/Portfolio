@@ -9,6 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
     .achievements-header {
       display: flex;
       align-items: center;
@@ -184,6 +189,21 @@
     </section>
     <section>
       <div class="achievements-list">
+        <div class="achievement-card" data-title="UI/UX Recommendation Letter" data-date="2024-05-15" data-desc="Received a recommendation letter for outstanding performance and contributions in UI/UX design.">
+          <div class="achievement-title">UI/UX Recommendation Letter</div>
+          <div class="achievement-date">2024-05-15</div>
+          <div class="achievement-desc">Received a recommendation letter for outstanding performance and contributions in UI/UX design.</div>
+        </div>
+        <div class="achievement-card" data-title="Plasmid Industrial Training" data-date="2024-04-10" data-desc="Completed industrial training at Plasmid, gaining hands-on experience in real-world UI/UX and development projects.">
+          <div class="achievement-title">Plasmid Industrial Training</div>
+          <div class="achievement-date">2024-04-10</div>
+          <div class="achievement-desc">Completed industrial training at Plasmid, gaining hands-on experience in real-world UI/UX and development projects.</div>
+        </div>
+        <div class="achievement-card" data-title="Pariksha Pe Charcha" data-date="2022-04-01" data-desc="Participated in the national event 'Pariksha Pe Charcha' with the Prime Minister, focusing on exam stress management and student motivation.">
+          <div class="achievement-title">Pariksha Pe Charcha</div>
+          <div class="achievement-date">2022-04-01</div>
+          <div class="achievement-desc">Participated in the national event 'Pariksha Pe Charcha' with the Prime Minister, focusing on exam stress management and student motivation.</div>
+        </div>
         <div class="achievement-card" data-title="GDSC Core Graphics Design Member" data-date="2023-09-01" data-desc="Selected as a core member for graphics design in the Google Developer Student Clubs, contributing to event branding and visual content.">
           <div class="achievement-title">GDSC Core Graphics Design Member</div>
           <div class="achievement-date">2023-09-01</div>
@@ -277,6 +297,18 @@
         } else if (title === 'Plasmid UI/UX Internship') {
           document.getElementById('modalView').onclick = function() {
             window.open('https://drive.google.com/file/d/1tmveniuB3PazQ7q0VhHLnBSSzqRVUk8P/view?usp=drive_link', '_blank');
+          };
+        } else if (title === 'Pariksha Pe Charcha') {
+          document.getElementById('modalView').onclick = function() {
+            window.open('https://drive.google.com/file/d/1lRVEPUp7tJMvv-7zeAqrqR1qPIlkl27Y/view?usp=sharing', '_blank');
+          };
+        } else if (title === 'UI/UX Recommendation Letter') {
+          document.getElementById('modalView').onclick = function() {
+            window.open('https://drive.google.com/file/d/1UdmiCk5UxL29jiJwxKoxEV09RhSNsjqL/view?usp=sharing', '_blank');
+          };
+        } else if (title === 'Plasmid Industrial Training') {
+          document.getElementById('modalView').onclick = function() {
+            window.open('https://drive.google.com/file/d/1LdzxfvRmheKN32F3xmb9hbvdNQBQKQ0w/view?usp=sharing', '_blank');
           };
         } else {
           document.getElementById('modalView').onclick = function() {
