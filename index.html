@@ -231,39 +231,86 @@
       min-width: 220px;
       min-height: 220px;
     }
-    .hero-img-bg {
+    /* --- Remove old hero-img and hero-img-bg styles, add rhombus styles --- */
+    .hero-img-bg, .hero-img, .hero-img-rhombus, .hero-img-rhombus-img { display: none !important; }
+    .hero-img-modern-wrapper {
       position: relative;
-      width: 210px;
-      height: 210px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #ff6ec4 0%, #7873f5 100%);
-      border-radius: 50%;
-      box-shadow: 0 8px 32px rgba(120,115,245,0.13), 0 2px 8px rgba(0,0,0,0.08);
+      width: 260px;
+      height: 340px;
+      margin: 0 auto;
+    }
+    .hero-img-modern-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 340px;
+      height: 420px;
+      transform: translate(-50%, -50%);
+      background: conic-gradient(from 180deg at 50% 50%, #ff6ec4 0%, #7873f5 40%, #42e695 80%, #ff6ec4 100%);
+      filter: blur(48px) brightness(1.2) saturate(1.2);
+      opacity: 0.55;
+      border-radius: 2.5rem;
+      z-index: 0;
+      animation: heroGlowMove 6s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes heroGlowMove {
+      0% { filter: blur(48px) brightness(1.2) saturate(1.2); }
+      100% { filter: blur(64px) brightness(1.4) saturate(1.4); }
+    }
+    .hero-img-modern {
+      width: 260px;
+      height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.25);
+      box-shadow: 0 8px 32px rgba(120,115,245,0.18), 0 2px 8px rgba(0,0,0,0.10);
+      border-radius: 2.2rem;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 2.5px solid rgba(120,115,245,0.18);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: transform 0.35s cubic-bezier(.23,1.01,.32,1), box-shadow 0.35s;
       animation: floatImg 4s ease-in-out infinite alternate;
     }
-    .hero-img {
-      width: 170px;
-      height: 170px;
+        .hero-img-modern:hover {
+      transform: translateY(-8px) scale(1.045);
+      box-shadow: 0 16px 64px 0 rgba(120,115,245,0.22), 0 2px 16px rgba(0,0,0,0.13);
+    }
+    .hero-img-modern-img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 50%;
-      border: 6px solid #fff;
-      box-shadow: 0 4px 24px rgba(120,115,245,0.10);
-      background: #fff;
-      transition: transform 0.3s;
-      margin: 0;
+      border-radius: 2rem;
+      box-shadow: 0 4px 32px 0 rgba(120,115,245,0.13);
+      border: none;
       display: block;
-      flex-shrink: 0;
-      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
       z-index: 2;
+      position: relative;
     }
-    .hero-img:hover {
-      transform: scale(1.06) rotate(-2deg);
+    .hero-img-modern-img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 48px 0 rgba(120,115,245,0.22);
     }
-    @keyframes floatImg {
-      0% { transform: translateY(0) scale(1); }
-      100% { transform: translateY(-18px) scale(1.04); }
+    .hero-img-modern-reflection {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 2rem;
+      background: linear-gradient(120deg, rgba(255,255,255,0.22) 10%, rgba(255,255,255,0.08) 40%, rgba(255,255,255,0.0) 70%);
+      pointer-events: none;
+      z-index: 3;
+      mix-blend-mode: lighten;
     }
     @media (max-width: 900px) {
       .hero-inner {
@@ -279,11 +326,18 @@
         text-align: center;
       }
       .bio { text-align: left; }
+      .hero-img-modern-wrapper { width: 180px; height: 240px; }
+      .hero-img-modern, .hero-img-modern-img, .hero-img-modern-reflection { border-radius: 1.2rem; }
+      .hero-img-modern { width: 180px; height: 240px; }
+      .hero-img-modern-glow { width: 240px; height: 320px; }
     }
     @media (max-width: 600px) {
+      .hero { padding-top: 4.5rem !important; }
       .hero-inner { padding: 2rem 0.5rem 1.5rem 0.5rem; gap: 1.2rem; }
-      .hero-img-bg { width: 180px; height: 180px; }
-      .hero-img { width: 130px; height: 130px; }
+      .hero-img-modern-wrapper { width: 180px; height: 240px; }
+      .hero-img-modern, .hero-img-modern-img, .hero-img-modern-reflection { border-radius: 0.7rem; }
+      .hero-img-modern { width: 180px; height: 240px; }
+      .hero-img-modern-glow { width: 210px; height: 270px; }
       .hero-title { font-size: 2rem; }
       .bio { font-size: 1.05rem; }
     }
@@ -398,7 +452,7 @@
       <div class="hero-inner">
         <div class="hero-content">
           <h1 class="hero-title">Hello, I'm Aman Kumar</h1>
-          <p class="bio">A passionate designer & developer crafting modern digital experiences. I specialize in graphic design, UI/UX, web, and game development.</p>
+          <p class="bio">Creative designer & developer specializing in graphic design, UI/UX, web, and game development—crafting sleek, modern digital experiences.</p>
           <div class="social-icons">
             <a href="#" class="icon linkedin" title="LinkedIn" target="_blank">
               <svg width="24" height="24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
@@ -416,8 +470,12 @@
           <a href="https://drive.google.com/file/d/1ofUIV2JP5xFDYEWadYMPuCWZx7IFzdAv/view?usp=drive_link" class="resume-btn" target="_blank">Resume</a>
         </div>
         <div class="hero-img-col">
-          <div class="hero-img-bg">
-            <img src="images/person.png" alt="Profile" class="hero-img" />
+          <div class="hero-img-modern-wrapper">
+            <div class="hero-img-modern-glow"></div>
+            <div class="hero-img-modern">
+              <img src="images/profile.png" alt="Profile Photo" class="hero-img-modern-img" />
+              <div class="hero-img-modern-reflection"></div>
+            </div>
           </div>
         </div>
       </div>
