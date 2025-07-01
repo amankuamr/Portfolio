@@ -36,10 +36,107 @@
       -webkit-user-select: none;
       -ms-user-select: none;
     }
+    /* TILES GRID SECTION */
+    .tiles-grid-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 3.5rem auto;
+      padding: 0 0 3.5rem 0;
+      overflow: visible;
+      box-sizing: border-box;
+    }
+    .tiles-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #2a254d;
+      margin-bottom: 2.2rem;
+      letter-spacing: -1px;
+      text-align: center;
+      text-shadow: 0 2px 12px rgba(120,115,245,0.08);
+      background: linear-gradient(90deg, #ff6ec4 0%, #7873f5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .tiles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 2.2rem 2.5rem;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0;
+      overflow: visible;
+      box-sizing: border-box;
+    }
+    .tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 1.3rem;
+      box-shadow: 0 4px 24px rgba(120,115,245,0.10), 0 2px 8px rgba(0,0,0,0.08);
+      padding: 2.6rem 1.2rem 2.2rem 1.2rem;
+      min-height: 210px;
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #2a254d;
+      text-decoration: none;
+      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #e3e6ff;
+    }
+    .tile:hover {
+      color: #fff;
+      transform: translateY(-7px) scale(1.04);
+      box-shadow: 0 8px 32px rgba(45,108,223,0.17);
+    }
+    .tile-graphic:hover {
+      background: linear-gradient(90deg, #ff6ec4 0%, #7873f5 100%);
+      border-color: #ff6ec4;
+      box-shadow: 0 8px 32px rgba(120,115,245,0.18);
+    }
+    .tile-uiux:hover {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      border-color: #6a11cb;
+      box-shadow: 0 8px 32px rgba(106,17,203,0.18);
+    }
+    .tile-web:hover {
+      background: linear-gradient(90deg, #2d6cdf 0%, #6ec6ff 100%);
+      border-color: #2d6cdf;
+      box-shadow: 0 8px 32px rgba(45,108,223,0.17);
+    }
+    .tile-game:hover {
+      background: linear-gradient(90deg, #fc5c7d 0%, #6a82fb 100%);
+      border-color: #fc5c7d;
+      box-shadow: 0 8px 32px rgba(252,92,125,0.18);
+    }
+    .tile-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.1rem;
+      filter: drop-shadow(0 2px 8px rgba(120,115,245,0.10));
+      transition: filter 0.18s;
+    }
+    .tile:hover .tile-icon {
+      filter: drop-shadow(0 4px 16px rgba(255,110,196,0.18));
+    }
+    @media (max-width: 700px) {
+      .tiles-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem 0;
+        max-width: 98vw;
+        padding: 0 1vw;
+      }
+    }
     /* HERO SECTION REDESIGN */
     .hero {
       position: relative;
-      min-height: 70vh;
+      min-height: 100vh;
       width: 100vw;
       display: flex;
       align-items: center;
@@ -59,15 +156,16 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: 3.5rem;
       z-index: 1;
       width: 100%;
       max-width: 1100px;
-      min-height: 420px;
+      min-height: 0;
       padding: 0 2rem;
       box-sizing: border-box;
       background: none;
+      transform: translateY(-8vh);
     }
     .hero-content {
       color: #2a254d;
@@ -305,10 +403,10 @@
             <a href="#" class="icon linkedin" title="LinkedIn" target="_blank">
               <svg width="24" height="24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
             </a>
-            <a href="#" class="icon instagram" title="Instagram" target="_blank">
+            <a href="https://instagram.com/i_am_.walker" class="icon instagram" title="Instagram: @i_am_.walker" target="_blank">
               <svg width="24" height="24" fill="currentColor"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.86.7-1.45.92-.46.17-1.26.354-2.43.41-1.266.058-1.65.07-4.85.07zm0-2.2c-3.259 0-3.667.012-4.947.07-1.276.058-2.147.24-2.89.51-.8.29-1.48.68-2.15 1.35-.67.67-1.06 1.35-1.35 2.15-.27.74-.452 1.614-.51 2.89-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.058 1.276.24 2.147.51 2.89.29.8.68 1.48 1.35 2.15.67.67 1.35 1.06 2.15 1.35.74.27 1.614.452 2.89.51 1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.276-.058 2.147-.24 2.89-.51.8-.29 1.48-.68 2.15-1.35.67-.67 1.06-1.35 1.35-2.15.27-.74.452-1.614.51-2.89.058-1.28.07-1.688.07-4.947s-.012-3.667-.07-4.947c-.058-1.276-.24-2.147-.51-2.89-.29-.8-.68-1.48-1.35-2.15-.67-.67-1.35-1.06-2.15-1.35-.74-.27-1.614-.452-2.89-.51-1.28-.058-1.688-.07-4.947-.07z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.4" cy="5.6" r="1.44"/></svg>
             </a>
-            <a href="mailto:your.email@gmail.com" class="icon gmail" title="Gmail" target="_blank">
+            <a href="mailto:amankumar1948sahu@gmail.com" class="icon gmail" title="Gmail" target="_blank">
               <svg width="24" height="24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20v-9.99l7.99 7.99c.39.39 1.02.39 1.41 0L20 10.01V20H4z"/></svg>
             </a>
             <a href="https://github.com/amankuamr" class="icon github" title="GitHub" target="_blank">
@@ -326,23 +424,26 @@
     </section>
 
     
-    <section class="tiles-grid fixed-2x2">
-      <a class="tile" href="projects-graphic.html">
-        <span class="tile-icon">🎨</span>
-        Graphic Design
-      </a>
-      <a class="tile" href="projects-uiux.html">
-        <span class="tile-icon">🖌️</span>
-        UI/UX Design
-      </a>
-      <a class="tile" href="projects-web.html">
-        <span class="tile-icon">💻</span>
-        Web Development
-      </a>
-      <a class="tile" href="projects-game.html">
-        <span class="tile-icon">🎮</span>
-        Game Development
-      </a>
+    <section class="tiles-grid-section">
+      <h2 class="tiles-title">Explore My Expertise</h2>
+      <div class="tiles-grid fixed-2x2">
+        <a class="tile tile-graphic" href="projects-graphic.html">
+          <span class="tile-icon">🎨</span>
+          Graphic Design
+        </a>
+        <a class="tile tile-uiux" href="projects-uiux.html">
+          <span class="tile-icon">🖌️</span>
+          UI/UX Design
+        </a>
+        <a class="tile tile-web" href="projects-web.html">
+          <span class="tile-icon">💻</span>
+          Web Development
+        </a>
+        <a class="tile tile-game" href="projects-game.html">
+          <span class="tile-icon">🎮</span>
+          Game Development
+        </a>
+      </div>
     </section>
 
     <section class="recent-projects">
@@ -426,8 +527,8 @@
         <h3>Connect</h3>
         <div class="footer-social-icons">
           <a href="#" class="icon linkedin" title="LinkedIn" target="_blank"><svg width="24" height="24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg></a>
-          <a href="#" class="icon instagram" title="Instagram" target="_blank"><svg width="24" height="24" fill="currentColor"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.86.7-1.45.92-.46.17-1.26.354-2.43.41-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.41-.59-.22-1.01-.48-1.45-.92-.44-.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43-.058-1.266-.07-1.65-.07-4.85s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41 1.266-.058 1.65-.07 4.85-.07zm0-2.2c-3.259 0-3.667.012-4.947.07-1.276.058-2.147.24-2.89.51-.8.29-1.48.68-2.15 1.35-.67.67-1.06 1.35-1.35 2.15-.27.74-.452 1.614-.51 2.89-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.058 1.276.24 2.147.51 2.89.29.8.68 1.48 1.35 2.15.67.67 1.35 1.06 2.15 1.35.74.27 1.614.452 2.89.51 1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.276-.058 2.147-.24 2.89-.51.8-.29 1.48-.68 2.15-1.35.67-.67 1.06-1.35 1.35-2.15.27-.74.452-1.614.51-2.89.058-1.28.07-1.688.07-4.947s-.012-3.667-.07-4.947c-.058-1.276-.24-2.147-.51-2.89-.29-.8-.68-1.48-1.35-2.15-.67-.67-1.35-1.06-2.15-1.35-.74-.27-1.614-.452-2.89-.51-1.28-.058-1.688-.07-4.947-.07z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.4" cy="5.6" r="1.44"/></svg></a>
-          <a href="mailto:your.email@gmail.com" class="icon gmail" title="Gmail" target="_blank"><svg width="24" height="24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20v-9.99l7.99 7.99c.39.39 1.02.39 1.41 0L20 10.01V20H4z"/></svg></a>
+          <a href="https://instagram.com/i_am_.walker" class="icon instagram" title="Instagram: @i_am_.walker" target="_blank"><svg width="24" height="24" fill="currentColor"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.86.7-1.45.92-.46.17-1.26.354-2.43.41-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.41-.59-.22-1.01-.48-1.45-.92-.44-.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43-.058-1.266-.07-1.65-.07-4.85s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41 1.266-.058 1.65-.07 4.85-.07zm0-2.2c-3.259 0-3.667.012-4.947.07-1.276.058-2.147.24-2.89.51-.8.29-1.48.68-2.15 1.35-.67.67-1.06 1.35-1.35 2.15-.27.74-.452 1.614-.51 2.89-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.058 1.276.24 2.147.51 2.89.29.8.68 1.48 1.35 2.15.67.67 1.35 1.06 2.15 1.35.74.27 1.614.452 2.89.51 1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.276-.058 2.147-.24 2.89-.51.8-.29 1.48-.68 2.15-1.35.67-.67 1.06-1.35 1.35-2.15.27-.74.452-1.614.51-2.89.058-1.28.07-1.688.07-4.947s-.012-3.667-.07-4.947c-.058-1.276-.24-2.147-.51-2.89-.29-.8-.68-1.48-1.35-2.15-.67-.67-1.35-1.06-2.15-1.35-.74-.27-1.614-.452-2.89-.51-1.28-.058-1.688-.07-4.947-.07z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.4" cy="5.6" r="1.44"/></svg></a>
+          <a href="mailto:amankumar1948sahu@gmail.com" class="icon gmail" title="Gmail" target="_blank"><svg width="24" height="24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20v-9.99l7.99 7.99c.39.39 1.02.39 1.41 0L20 10.01V20H4z"/></svg></a>
           <a href="https://github.com/amankuamr" class="icon github" title="GitHub" target="_blank"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.468-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.984-.399 3.003-.404 1.018.005 2.046.138 3.006.404 2.289-1.552 3.295-1.23 3.295-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.371.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .321.218.694.825.576C20.565 21.796 24 17.299 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
         </div>
       </div>
