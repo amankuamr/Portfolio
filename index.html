@@ -416,9 +416,140 @@
       color: #fff;
       text-decoration: none;
     }
+  /* Abstract colorful dots for hero profile */
+    .hero-dot {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.85;
+      z-index: 2;
+      pointer-events: none;
+      filter: blur(0.5px) brightness(1.1);
+      animation: dotFloat 5s ease-in-out infinite alternate;
+    }
+    .hero-dot-1 {
+      width: 32px; height: 32px;
+      background: radial-gradient(circle at 60% 40%, #ff6ec4 60%, #fff0 100%);
+      top: 10px; left: -38px;
+      animation-delay: 0s;
+    }
+    .hero-dot-2 {
+      width: 22px; height: 22px;
+      background: radial-gradient(circle at 60% 40%, #7873f5 70%, #fff0 100%);
+      top: 60px; left: -32px;
+      animation-delay: 1.2s;
+    }
+    .hero-dot-3 {
+      width: 28px; height: 28px;
+      background: radial-gradient(circle at 60% 40%, #42e695 70%, #fff0 100%);
+      bottom: 30px; left: -28px;
+      animation-delay: 2.1s;
+    }
+    .hero-dot-4 {
+      width: 18px; height: 18px;
+      background: radial-gradient(circle at 60% 40%, #ffe066 80%, #fff0 100%);
+      bottom: 18px; left: 18px;
+      animation-delay: 2.7s;
+    }
+    .hero-dot-5 {
+      width: 14px; height: 14px;
+      background: radial-gradient(circle at 60% 40%, #6ec6ff 80%, #fff0 100%);
+      top: 110px; left: 100%;
+      animation-delay: 3.3s;
+    }
+    .hero-dot-6 {
+      width: 24px; height: 24px;
+      background: radial-gradient(circle at 60% 40%, #ffb86b 80%, #fff0 100%);
+      top: -18px; right: 18px;
+      animation-delay: 1.7s;
+    }
+    .hero-dot-7 {
+      width: 20px; height: 20px;
+      background: radial-gradient(circle at 60% 40%, #ff6ec4 80%, #fff0 100%);
+      bottom: -18px; right: 12px;
+      animation-delay: 2.9s;
+    }
+    .hero-dot-8 {
+      width: 16px; height: 16px;
+      background: radial-gradient(circle at 60% 40%, #7873f5 80%, #fff0 100%);
+      top: 50%; right: -22px;
+      animation-delay: 2.2s;
+    }
+    .hero-dot-9 {
+      width: 20px; height: 20px;
+      background: radial-gradient(circle at 60% 40%, #42e695 80%, #fff0 100%);
+      bottom: 10px; right: -24px;
+      animation-delay: 3.7s;
+    }
+    .hero-dot-10 {
+      width: 12px; height: 12px;
+      background: radial-gradient(circle at 60% 40%, #ffe066 80%, #fff0 100%);
+      top: 80%; left: -20px;
+      animation-delay: 1.9s;
+    }
+      /* Modern animated blobs */
+    .hero-blob {
+      position: absolute;
+      border-radius: 40% 60% 60% 40%/60% 40% 60% 40%;
+      opacity: 0.55;
+      z-index: 1;
+      pointer-events: none;
+      filter: blur(14px) brightness(1.1) saturate(1.2);
+      mix-blend-mode: lighten;
+      animation: blobMove 8s ease-in-out infinite alternate;
+      transition: opacity 0.3s;
+    }
+    .hero-blob-1 {
+      width: 110px; height: 140px;
+      background: linear-gradient(135deg, #ff6ec4 0%, #7873f5 100%);
+      top: -32px; left: -60px;
+      animation-delay: 0s;
+    }
+    .hero-blob-2 {
+      width: 90px; height: 120px;
+      background: linear-gradient(120deg, #42e695 0%, #6ec6ff 100%);
+      bottom: -28px; right: -48px;
+      animation-delay: 2.5s;
+    }
+    .hero-blob-3 {
+      width: 70px; height: 90px;
+      background: linear-gradient(120deg, #ffe066 0%, #ffb86b 100%);
+      top: 60px; right: -38px;
+      animation-delay: 4.2s;
+    }
+    @keyframes blobMove {
+      0% { transform: scale(1) translateY(0) rotate(0deg); }
+      100% { transform: scale(1.08) translateY(-18px) rotate(8deg); }
+    }
+  </style>
+  <style>
+    .page-transition {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      background: radial-gradient(ellipse at 60% 40%, #ff6ec4 0%, #7873f5 40%, #42e695 80%, #ffe066 100%);
+      opacity: 0;
+      transform: scale(1.12) rotate(-2deg);
+      filter: blur(0px) brightness(1.1) saturate(1.1);
+      transition:
+        opacity 0.7s cubic-bezier(.22,1.12,.32,1.01),
+        transform 0.7s cubic-bezier(.22,1.12,.32,1.01),
+        filter 0.7s cubic-bezier(.22,1.12,.32,1.01);
+    }
+    .page-transition.active {
+      opacity: 1;
+      pointer-events: all;
+      transform: scale(1) rotate(0deg);
+      filter: blur(18px) brightness(1.15) saturate(1.2);
+      transition:
+        opacity 0.5s cubic-bezier(.22,1.12,.32,1.01),
+        transform 0.5s cubic-bezier(.22,1.12,.32,1.01),
+        filter 0.5s cubic-bezier(.22,1.12,.32,1.01);
+    }
   </style>
 </head>
 <body>
+    <div class="page-transition"></div>
   <nav class="navbar">
     <div class="nav-logo"><img src="images/signature.png" alt="Signature" style="height:40px;"></div>
     <ul class="nav-links">
@@ -471,6 +602,10 @@
         </div>
         <div class="hero-img-col">
           <div class="hero-img-modern-wrapper">
+            <!-- Modern animated blobs -->
+            <div class="hero-blob hero-blob-1"></div>
+            <div class="hero-blob hero-blob-2"></div>
+            <div class="hero-blob hero-blob-3"></div>
             <div class="hero-img-modern-glow"></div>
             <div class="hero-img-modern">
               <img src="images/profile.png" alt="Profile Photo" class="hero-img-modern-img" />
