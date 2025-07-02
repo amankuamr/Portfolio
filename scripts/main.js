@@ -61,3 +61,41 @@ if (hero) {
     }
   });
 }
+
+// Animated navbar hide/show on leaving hero section (applies to all pages)
+(function() {
+  const navbar = document.querySelector('.navbar');
+  const heroSection = document.querySelector('.hero');
+  if (navbar && heroSection && 'IntersectionObserver' in window) {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          navbar.classList.remove('navbar-hidden');
+        } else {
+          navbar.classList.add('navbar-hidden');
+        }
+      },
+      { root: null, threshold: 0 }
+    );
+    observer.observe(heroSection);
+  } else if (navbar && !heroSection) {
+    // Fallback: Hide navbar on scroll for pages without hero section
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 120 && window.scrollY > lastScrollY) {
+            navbar.classList.add('navbar-hidden');
+          } else {
+            navbar.classList.remove('navbar-hidden');
+          }
+          lastScrollY = window.scrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll);
+  }
+})();

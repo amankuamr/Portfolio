@@ -31,7 +31,14 @@ body {
   position: sticky;
   top: 1rem;
   z-index: 100;
-  transition: background 0.3s, box-shadow 0.3s;
+  transition: background 0.3s, box-shadow 0.3s, opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+.navbar-hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(-40px);
+  transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
 }
 .nav-logo {
   font-weight: 900;
@@ -133,7 +140,7 @@ body {
   justify-content: center;
   text-align: center;
   padding: 3rem 1rem 2rem 1rem;
-  background: linear-gradient(120deg, #e3f0ff 0%, #f7f8fa 100%);
+  
   position: relative;
   animation: fadeInUp 0.8s;
   overflow: hidden;
