@@ -284,6 +284,14 @@
             <span class="project-tag">Mobile UI</span>
           </div>
         </div>
+        <div class="project-card">
+          <div class="project-title">BWStory UI/Redesign</div>
+          <div class="project-date"> </div>
+          <div class="project-desc">UI/UX redesign for BWStory, prototyped in Figma.</div>
+          <div style="margin-top:0.5em;">
+            <span class="project-tag figma">Figma</span>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -408,6 +416,11 @@
           document.getElementById('modalPortfolioActions').style.display = 'none';
           document.getElementById('modalDefaultActions').style.display = 'flex';
           document.getElementById('modalView').onclick = function() { window.open('https://bigdeal.framer.ai/', '_blank'); };
+          document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
+        } else if (title === 'BWStory UI/Redesign') {
+          document.getElementById('modalPortfolioActions').style.display = 'none';
+          document.getElementById('modalDefaultActions').style.display = 'flex';
+          document.getElementById('modalView').onclick = function() { window.open('https://www.figma.com/proto/zzi5gTAtTssp64YYucCVTw/project?node-id=398-2&t=S1NjKN7WvByqpRVG-1', '_blank'); };
           document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
         } else {
           document.getElementById('modalPortfolioActions').style.display = 'none';
