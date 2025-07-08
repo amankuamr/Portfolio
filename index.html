@@ -342,7 +342,7 @@
         flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
-        gap: 3.5rem;
+        gap: 0.8rem;
         min-height: 0;
         padding: 2rem 0.5rem 1.5rem 0.5rem;
       }
@@ -861,6 +861,15 @@
                 <div class="timeline-view-desc">UI/UX and web prototype for BWStory, prototyped in Figma and built with HTML, CSS, and JavaScript.</div>
               </div>
             </div>
+            <div class="timeline-view-item left">
+              <div class="timeline-view-dot"></div>
+              <div class="timeline-view-content left">
+                <div class="timeline-view-date">8 July 2025</div>
+                <div class="timeline-view-project">Pixels</div>
+                <span class="timeline-tag web">Web</span>
+                <div class="timeline-view-desc">A social media app.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1110,6 +1119,66 @@
     </div>
   </main>
 
+  <!-- Auto-scrolling picture bar -->
+  <div class="scrolling-picture-bar-wrapper" style="width:100%;overflow:visible;min-height:200px;background:#f7f7fa;padding:3.5rem 0 3.5rem 0;box-shadow:0 -2px 12px rgba(120,115,245,0.07);margin-top:2.5rem;display:flex;align-items:center;justify-content:center;">
+    <div class="scrolling-picture-bar">
+      <img src="images/bar/1 (1).jpeg" alt="Bar 1">
+      <img src="images/bar/1 (2).jpeg" alt="Bar 2">
+      <img src="images/bar/1 (3).jpeg" alt="Bar 3">
+      <img src="images/bar/1 (4).jpeg" alt="Bar 4">
+      <img src="images/bar/1 (5).jpeg" alt="Bar 5">
+      <img src="images/bar/1 (6).jpeg" alt="Bar 6">
+      <img src="images/bar/1 (7).jpeg" alt="Bar 7">
+      <img src="images/bar/1 (8).jpeg" alt="Bar 8">
+      <img src="images/bar/1 (9).jpeg" alt="Bar 9">
+      <img src="images/bar/1 (10).jpeg" alt="Bar 10">
+      <img src="images/bar/1 (11).jpeg" alt="Bar 11">
+      <img src="images/bar/1 (1).jpeg" alt="Bar 1">
+      <img src="images/bar/1 (2).jpeg" alt="Bar 2">
+      <img src="images/bar/1 (3).jpeg" alt="Bar 3">
+      <img src="images/bar/1 (4).jpeg" alt="Bar 4">
+      <img src="images/bar/1 (5).jpeg" alt="Bar 5">
+      <img src="images/bar/1 (6).jpeg" alt="Bar 6">
+      <img src="images/bar/1 (7).jpeg" alt="Bar 7">
+      <img src="images/bar/1 (8).jpeg" alt="Bar 8">
+      <img src="images/bar/1 (9).jpeg" alt="Bar 9">
+      <img src="images/bar/1 (10).jpeg" alt="Bar 10">
+      <img src="images/bar/1 (11).jpeg" alt="Bar 11">
+    </div>
+    <style>
+      .scrolling-picture-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        animation: scroll-pics 32s linear infinite;
+        width: max-content;
+      }
+      .scrolling-picture-bar img {
+        height: 160px;
+        max-width: 280px;
+        border-radius: 0.5rem;
+        box-shadow: 0 1.5px 6px rgba(120,115,245,0.08);
+        object-fit: cover;
+        background: #f4f6fa;
+        border: 1.5px solid #ecebfa;
+        transition: box-shadow 0.2s, border 0.2s;
+      }
+      .scrolling-picture-bar img:hover {
+        box-shadow: 0 6px 24px rgba(120,115,245,0.13);
+        border: 1.5px solid #b3b8f5;
+      }
+      @keyframes scroll-pics {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      @media (max-width: 700px) {
+        .scrolling-picture-bar {
+          gap: 0.8rem;
+        }
+        .scrolling-picture-bar img { height: 120px; max-width: 180px; }
+      }
+    </style>
+  </div>
   <footer class="footer-modern">
     <div class="footer-container">
       <div class="footer-about">
@@ -1186,6 +1255,8 @@
             img = '<img src="images/timeline/portfolio2.png" alt="Portfolio" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
           } else if (project === 'BWStory') {
             img = '<img src="images/timeline/BWStory.png" alt="BWStory" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
+          } else if (project === 'Pixels') {
+            img = '<img src="images/timeline/pixels.png" alt="Pixels" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
           }
           if (img) {
             floatBoxContent.innerHTML = img;
