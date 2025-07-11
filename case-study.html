@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Case Study</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    body {
+      background: #f7f7fa;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .case-study-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(45,108,223,0.10);
+      padding: 2.5rem 2rem 2rem 2rem;
+    }
+    .case-study-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2d6cdf;
+      margin-bottom: 0.5rem;
+    }
+    .case-study-date {
+      color: #888;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    .case-study-content {
+      font-size: 1.08rem;
+      color: #333;
+      line-height: 1.7;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      background: #e3f0ff;
+      color: #2d6cdf;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(45,108,223,0.07);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+    .back-link:hover {
+      background: #2d6cdf;
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+    }
+  </style>
+</head>
+<body>
+  <div class="case-study-container">
+    <div class="case-study-title" id="caseStudyTitle">Project Title</div>
+    <div class="case-study-date" id="caseStudyDate">Project Date</div>
+    <div class="case-study-content" id="caseStudyContent">
+      Loading case study...
+    </div>
+    <a href="projects-web.html" class="back-link">&larr; Back to Projects</a>
+  </div>
+  <script>
+    // Example case studies data
+    const caseStudies = {
+      'Moviez': {
+        title: 'Moviez',
+        date: '10 July 2025',
+        content: `
+        <h2 style="font-size:1.4em;margin-top:0.5em;">🎬 Case Study: <strong>Moviez</strong> – A Modern Movie Explorer Web App</h2>
+        <hr style="margin:1.2em 0;">
+        <h3 style="color:#2d6cdf;">🔹 Overview</h3>
+        <p><strong>Moviez</strong> is a sleek, user-friendly movie discovery web app that lets users search, explore, and learn about movies using real-time data from public APIs. Built with a modern UI, it aims to replicate a mini IMDb-like experience with fast search, poster previews, and key metadata.</p>
+        <h3 style="color:#2d6cdf;">🎯 Objective</h3>
+        <ul>
+          <li>Search for movies by name</li>
+          <li>View movie posters and essential details</li>
+          <li>Explore movies visually with a clean, minimalist design</li>
+          <li>Learn core API integration and DOM manipulation</li>
+        </ul>
+        <h3 style="color:#2d6cdf;">🧩 Features</h3>
+        <ul>
+          <li>🔍 <strong>Live Search</strong> with debounce (prevents API overload)</li>
+          <li>🖼️ <strong>Movie Posters</strong> and titles in grid layout</li>
+          <li>📄 <strong>Detailed Info View</strong> (plot, genre, release, ratings, etc.)</li>
+          <li>🚫 <strong>Error Handling</strong> for invalid queries or API failures</li>
+          <li>📱 <strong>Responsive Design</strong> (mobile-first layout)</li>
+        </ul>
+        <h3 style="color:#2d6cdf;">🔧 Technologies Used</h3>
+        <table style="width:100%;border-collapse:collapse;margin-bottom:1em;">
+          <tr><td style="padding:0.3em 0.7em;"><strong>Frontend</strong></td><td>HTML, CSS, JavaScript (ES6)</td></tr>
+          <tr><td style="padding:0.3em 0.7em;"><strong>API Integration</strong></td><td>OMDb API (<a href='http://www.omdbapi.com/' target='_blank'>omdbapi.com</a>)</td></tr>
+          <tr><td style="padding:0.3em 0.7em;"><strong>Deployment</strong></td><td>GitHub Pages / Vercel</td></tr>
+          <tr><td style="padding:0.3em 0.7em;"><strong>Design Style</strong></td><td>Minimal UI with card-based layout</td></tr>
+        </table>
+        <h3 style="color:#2d6cdf;">🛠️ How It Works</h3>
+        <ol>
+          <li>User enters a movie name</li>
+          <li>JS fetches movie data from the OMDb API using <code>fetch()</code></li>
+          <li>Results are displayed as <strong>cards</strong> with poster and title</li>
+          <li>On click, a modal or section displays <strong>detailed movie info</strong></li>
+          <li>UI updates dynamically without reloading the page</li>
+        </ol>
+        <h3 style="color:#2d6cdf;">🧪 Challenges Faced</h3>
+        <ul>
+          <li>🔒 <strong>OMDb Free Tier Limits</strong>: Limited access to newer or obscure titles</li>
+          <li>💾 <strong>Handling Missing Data</strong>: Some movies lack poster/images</li>
+          <li>🌐 <strong>CORS Issues</strong>: Handled API securely using frontend-only methods</li>
+          <li>🔎 <strong>Improving Search</strong>: Added debounce to prevent excessive API calls</li>
+        </ul>
+        <h3 style="color:#2d6cdf;">🚀 Future Improvements</h3>
+        <ul>
+          <li>Switch to <strong>TMDb API</strong> for richer data and larger movie catalog</li>
+          <li>Add <strong>trailer previews</strong> using YouTube or TMDb’s video endpoint</li>
+          <li>Include <strong>user ratings</strong>, reviews, or bookmarks using <code>localStorage</code></li>
+          <li>Implement <strong>dark mode toggle</strong></li>
+          <li>Add <strong>pagination or infinite scroll</strong> for better UX</li>
+        </ul>
+        <h3 style="color:#2d6cdf;">📷 Screenshots / Demo</h3>
+        <blockquote style="background:#f3f7ff;padding:1em 1.2em;border-left:4px solid #2d6cdf;">_(Include full-page and mobile view screenshots of: home, search, movie detail page)_</blockquote>
+        <h3 style="color:#2d6cdf;">🔗 Live Demo</h3>
+        <p>🌐 <a href="https://amankuamr.github.io/Moviez" target="_blank"><strong>Moviez Web App</strong></a></p>
+        <h3 style="color:#2d6cdf;">✅ Key Takeaways</h3>
+        <ul>
+          <li>Learned real-time <strong>API integration</strong></li>
+          <li>Practiced <strong>responsive web design</strong></li>
+          <li>Understood <strong>user interaction patterns</strong> (search, detail view)</li>
+          <li>Strengthened skills in <strong>vanilla JS DOM manipulation</strong></li>
+        </ul>
+        `
+      },
+      'Cognite': {
+        title: 'Cognite',
+        date: '24 June 2025',
+        content: `<p><strong>Overview:</strong> Cognite is a real-time chat application built for seamless communication. It leverages Firebase for authentication and real-time messaging.</p>
+        <p><strong>Features:</strong></p>
+        <ul>
+          <li>Real-time chat</li>
+          <li>User authentication</li>
+          <li>Modern UI</li>
+        </ul>
+        <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, Firebase</p>`
+      }
+      // Add more case studies as needed
+    };
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+    const project = getQueryParam('project');
+    if (project && caseStudies[project]) {
+      document.getElementById('caseStudyTitle').textContent = caseStudies[project].title;
+      document.getElementById('caseStudyDate').textContent = caseStudies[project].date;
+      document.getElementById('caseStudyContent').innerHTML = caseStudies[project].content;
+    } else {
+      document.getElementById('caseStudyTitle').textContent = 'Case Study Not Found';
+      document.getElementById('caseStudyDate').textContent = '';
+      document.getElementById('caseStudyContent').textContent = 'No case study available for this project.';
+    }
+  </script>
+</body>
+</html>

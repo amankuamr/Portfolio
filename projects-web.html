@@ -258,7 +258,19 @@
             <span class="project-tag web">Firebase</span>
             <span class="project-tag web">Authentication</span>
           </div>
-                  </div>
+        </div>
+        <div class="project-card">
+          <div class="project-title">Moviez</div>
+          <div class="project-date">10 July 2025</div>
+          <div class="project-desc">A web app to explore and search for movies, featuring a modern UI and real-time data from movie APIs.</div>
+          <div class="project-tags-row">
+            <span class="project-tag web">HTML</span>
+            <span class="project-tag web">CSS</span>
+            <span class="project-tag web">JavaScript</span>
+            <span class="project-tag web">API</span>
+            <span class="project-tag web">Responsive</span>
+          </div>
+        </div>
         <div class="project-card">
           <div class="project-title">ShotChat</div>
           <div class="project-date">28 June 2025</div>
@@ -461,10 +473,15 @@
           document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/BWStory/', '_blank'); };
         } else if (title === 'Pixels') {
           document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/Pixels/', '_blank'); };
+        } else if (title === 'Moviez') {
+          document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/Moviez', '_blank'); };
         } else {
           document.getElementById('modalView').onclick = function() { alert('Demo link not set.'); };
         }
-        document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
+        document.getElementById('modalSource').onclick = function() {
+          var caseStudyProject = encodeURIComponent(title);
+          window.open('case-study.html?project=' + caseStudyProject, '_blank');
+        };
         document.getElementById('modalBackdrop').style.display = 'flex';
       });
     });
