@@ -667,6 +667,18 @@
     <section class="recent-projects">
       <h2>Recent Projects</h2>
       <div class="projects-list six-projects">
+        <div class="project-card" data-title="Moviez" data-desc="A movie information and discovery web app." data-tag="Web Development">
+          <span class="project-icon">🎬</span>
+          Moviez
+          <span class="project-tag web">Web Development</span>
+          <div class="project-desc">A movie information and discovery web app.</div>
+        </div>
+        <div class="project-card" data-title="Pixels" data-desc="A social media app." data-tag="Web Development">
+          <span class="project-icon">🖼️</span>
+          Pixels
+          <span class="project-tag web">Web Development</span>
+          <div class="project-desc">A social media app.</div>
+        </div>
         <div class="project-card" data-title="Cognite" data-desc="A modern chatting app for real-time conversations." data-tag="Web Development">
           <span class="project-icon">💬</span>
           Cognite
@@ -678,18 +690,6 @@
           ShotChat
           <span class="project-tag web">Web Development</span>
           <div class="project-desc">A Twitter-type clone with added chatting features.</div>
-        </div>
-        <div class="project-card" data-title="Password Manager" data-desc="A secure web app for managing and generating passwords." data-tag="Web Development">
-          <span class="project-icon">🔒</span>
-          Password Manager
-          <span class="project-tag web">Web Development</span>
-          <div class="project-desc">A secure web app for managing and generating passwords.</div>
-        </div>
-        <div class="project-card" data-title="File Format Converter" data-desc="A web app to convert files between various formats." data-tag="Web Development">
-          <span class="project-icon">🔄</span>
-          File Format Converter
-          <span class="project-tag web">Web Development</span>
-          <div class="project-desc">A web app to convert files between various formats.</div>
         </div>
         <div class="project-card" data-title="Poster for Tech Fest" data-desc="A vibrant poster designed for a college tech fest." data-tag="Graphic Design">
           <span class="project-icon">🖼️</span>
@@ -1321,6 +1321,10 @@
           viewBtn.onclick = function() { window.open('https://amankuamr.github.io/password-manager/', '_blank'); };
         } else if (title === 'File Format Converter') {
           viewBtn.onclick = function() { window.open('https://amankuamr.github.io/converter/', '_blank'); };
+        } else if (title === 'Pixels') {
+          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/Pixels/', '_blank'); };
+        } else if (title === 'Moviez') {
+          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/Moviez/', '_blank'); };
         } else {
           viewBtn.onclick = function() { alert('Demo link not set.'); };
         }
