@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moviez – Case Study | Portfolio</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html {
+      width: 100vw;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-image: radial-gradient(ellipse at 60% 40%, #f3e7ff 0%, #e3e6ff 60%, #f7f7fa 100%);
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    body {
+      width: 100vw;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background: none !important;
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #23243a;
+    }
+    .case-section {
+      max-width: 700px;
+      margin: 0 auto 2.5em auto;
+      padding: 3.5em 1.2em 3.5em 1.2em;
+      background: none !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+    .case-block {
+      border-radius: 1.2em;
+      padding: 2em 1em;
+      margin-bottom: 2.5em;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(45,108,223,0.04);
+      border: 1.5px solid #dbeafe;
+      transition: background 0.2s, border 0.2s;
+    }
+    .case-block:nth-of-type(even) {
+      background: #d0e3ff;
+      border: 1.5px solid #b3d1fa;
+    }
+    .case-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 0.2em;
+      letter-spacing: -1px;
+      color: #11998e;
+      text-align: center;
+    }
+    .case-subtitle {
+      text-align: center;
+      color: #555;
+      font-size: 1.1em;
+      margin-bottom: 2.2em;
+    }
+    .case-section-title {
+      font-size: 1.18em;
+      font-weight: 700;
+      color: #11998e;
+      margin-bottom: 0.7em;
+      letter-spacing: 0.1px;
+      border-left: 4px solid #ffcc00;
+      padding-left: 0.7em;
+      margin-top: 0;
+    }
+    .case-desc {
+      font-size: 1.08em;
+      line-height: 1.7;
+      margin-bottom: 1.2em;
+      color: #23243a;
+    }
+    .case-list {
+      margin: 0.5em 0 0 0;
+      padding: 0 0 0 1.2em;
+      line-height: 1.8;
+    }
+    .case-list li {
+      margin-bottom: 0.3em;
+    }
+    .case-btn-row {
+      display: flex;
+      gap: 1.2em;
+      margin: 1.5em 0 0.5em 0;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .case-btn {
+      display: inline-block;
+      padding: 0.7em 2em;
+      background: linear-gradient(90deg,#ffcc00 0%,#ffe066 100%);
+      color: #181a20;
+      font-weight: 700;
+      font-size: 1.05em;
+      border-radius: 2em;
+      box-shadow: 0 2px 8px rgba(45,108,223,0.07);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .case-btn:hover {
+      background: linear-gradient(90deg,#ffe066 0%,#ffcc00 100%);
+    }
+    .case-image {
+      display: block;
+      margin: 2.5em auto 2.5em auto;
+      max-width: 100%;
+      width: 700px;
+      border-radius: 1.2em;
+      box-shadow: 0 4px 32px rgba(45,108,223,0.13);
+      background: none;
+    }
+    .case-role-list {
+      display: flex;
+      gap: 2em;
+      flex-wrap: wrap;
+      margin: 0.5em 0 1.2em 0;
+      padding: 0;
+      list-style: none;
+    }
+    .case-role-list li {
+      background: transparent;
+      border-radius: 1.2em;
+      padding: 0.5em 1.2em;
+      font-weight: 600;
+      color: #11998e;
+      font-size: 1em;
+    }
+    @media (max-width: 800px) {
+      .case-section { max-width: 98vw; }
+      .case-image { width: 100%; }
+    }
+    @media (max-width: 500px) {
+      .case-section { padding: 1em 0.2em 2em 0.2em; }
+      .case-title { font-size: 1.3em; }
+      .case-section-title { font-size: 1em; }
+    }
+  main {
+      animation: fadeIn 1.2s cubic-bezier(.23,1.01,.32,1) 0.2s both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: none; }
+    }
+  .case-block {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+
+    .case-block.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style><style>.nav-logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 16px;
+    padding: 8px 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: box-shadow 0.3s, background 0.3s;
+    overflow: hidden;
+  }
+  .nav-logo::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    border-radius: 50%;
+    filter: blur(32px);
+    opacity: 0.7;
+    background: linear-gradient(270deg, #ff6ec4, #7873f5, #42e695, #ff6ec4);
+    background-size: 400% 400%;
+    animation: gradientMove 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .nav-logo img {
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+  .nav-logo:hover {
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  }
+  .bg-image {
+      position: fixed;
+      top: 50%;
+      left: -10%;
+      width: auto;
+      height: 80%;
+      object-fit: contain;
+      z-index: -1;
+      opacity: 1;
+      transform: translateY(-50%) rotate(-15deg);
+    }
+
+    @media (max-width: 800px) {
+      .bg-image {
+        opacity: 0.5;
+      }
+    }
+    </style>
+</head>
+<body>
+  <img src="images/casestudies/Moviez/tab.png" class="bg-image" alt="background image">
+  <div class="page-transition"></div>
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo"><img src="images/signature.png" alt="Signature" style="height:40px;"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li class="dropdown">
+        <a href="projects.html" class="dropdown-toggle" tabindex="0">Projects <span class="arrow">▼</span></a>
+        <ul class="dropdown-content">
+          <li><a href="projects-graphic.html">Graphic Design</a></li>
+          <li><a href="projects-uiux.html">UI/UX Design</a></li>
+          <li><a href="projects-web.html">Web Development</a></li>
+          <li><a href="projects-game.html">Game Development</a></li>
+        </ul>
+      </li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li class="dropdown">
+        <a href="profile.html" class="dropdown-toggle" tabindex="0">Profile <span class="arrow">▼</span></a>
+        <ul class="dropdown-content">
+          <li><a href="profile-about.html">About Me</a></li>
+          <li><a href="profile-contact.html">Contact</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <main>
+    <div class="case-section">
+      <div class="case-block">
+        <button onclick="history.back()" class="case-btn" style="margin-bottom:2em;background:#f7f7fa;color:#11998e;box-shadow:none;">← Back</button>
+        <div class="case-title">Moviez – Case Study</div>
+        <div class="case-subtitle">Dynamic movie discovery app with live data, modern UI, and responsive design.</div>
+      </div>
+      <div class="case-block">
+        <div class="case-section-title">Overview</div>
+        <div class="case-desc">
+          <b>Moviez</b> is a dynamic and responsive web application that allows users to explore trending and newly released movies with an engaging UI. Designed in Figma and built using HTML, CSS, and JavaScript, it fetches real-time data using <b>TMDb API</b> and other public APIs to ensure fresh and accurate movie listings.
+        </div>
+      </div>
+      <div class="case-block">
+        <div class="case-section-title">Goal</div>
+        <div class="case-desc">
+          To create a <b>visually modern</b> and <b>fully dynamic movie app</b> that helps users discover, explore, and learn about movies using live data — all while strengthening my skills in UI design and frontend development.
+        </div>
+      </div>
+      <div class="case-block">
+        <div class="case-section-title">My Role</div>
+        <ul class="case-role-list">
+          <li>UI/UX Design (Figma)</li>
+          <li>Frontend Development (HTML, CSS, JS)</li>
+          <li>API Integration (TMDb & others)</li>
+        </ul>
+      </div>
+      <div class="case-block">
+        <div class="case-section-title">Design & Development</div>
+        <div class="case-desc" style="margin-bottom:0.7em;">
+          <b>Design Approach:</b>
+          <ul class="case-list">
+            <li>Readable typography</li>
+            <li>Poster-forward layout</li>
+            <li>Mobile-first responsiveness</li>
+            <li>Smooth hover effects and visual hierarchy</li>
+          </ul>
+        </div>
+        <div class="case-btn-row">
+          <a href="https://www.figma.com/proto/4ape8cXUQTdsbIITduIfPX/Untitled?node-id=0-1&t=I4qGaP5UCxHeHJJ1-1" target="_blank" class="case-btn">🎨 View Design</a>
+        </div>
+        <div class="case-desc" style="margin-top:1.5em;margin-bottom:0.7em;">
+          <b>Development Features:</b>
+          <ul class="case-list">
+            <li>🔎 <b>Search Functionality</b> — Live movie search from TMDb</li>
+            <li>🖼️ <b>Poster Grid Layout</b> — Responsive card-based display</li>
+            <li>📄 <b>Movie Detail Modal</b> — Title, genre, rating, release date, and overview</li>
+            <li>🔁 <b>Dynamic Content</b> — All data updates automatically from the APIs</li>
+            <li>❌ <b>Error Handling</b> — For empty or invalid searches</li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-block">
+        <div class="case-section-title">Project Preview</div>
+        <img src="images/casestudies/Moviez/laptop.png" alt="Moviez Laptop Preview" class="case-image" />
+      </div>
+      <div class="case-block">
+        <div class="case-section-title">Tools & Technologies</div>
+        <div class="case-desc">
+          <b>Design:</b> Figma<br>
+          <b>Frontend:</b> HTML, CSS, JavaScript<br>
+          <b>API & Data:</b> TMDb API, Additional Public APIs<br>
+          <b>Hosting/Deploy:</b> GitHub Pages / Vercel
+        </div>
+      </div>
+      <div class="case-block">
+        <div class="case-section-title">Challenges & Solutions</div>
+        <ul class="case-list">
+          <li><b>Challenge:</b> Limited free API content<br><b>Solution:</b> Switched from OMDb to <b>TMDb</b> for more data</li>
+          <li><b>Challenge:</b> Responsive grid layout<br><b>Solution:</b> Used <b>CSS Flexbox</b> and <b>media queries</b></li>
+          <li><b>Challenge:</b> Handling missing poster images<br><b>Solution:</b> Added fallback image logic in JS</li>
+          <li><b>Challenge:</b> API rate limiting<br><b>Solution:</b> Implemented <b>debounce</b> in search field</li>
+        </ul>
+      </div>
+      <div class="case-block">
+        <div class="case-section-title">Future Enhancements</div>
+        <ul class="case-list">
+          <li>Add <b>user watchlist</b> with localStorage</li>
+          <li>Add <b>dark mode toggle</b></li>
+          <li>Add <b>sign in and sign out feature</b> for only the wishlisting users</li>
+        </ul>
+      </div>
+      <div class="case-block">
+        <div class="case-section-title">Live Project</div>
+        <div class="case-btn-row">
+          <a href="https://amankuamr.github.io/Moviez/" target="_blank" class="case-btn">🌐 Visit Moviez</a>
+        </div>
+      </div>
+      <div class="case-block">
+        <div class="case-section-title">Takeaways</div>
+        <ul class="case-list">
+          <li>Learned how to convert a <b>Figma UI design into live code</b></li>
+          <li>Understood how to integrate and manage <b>external APIs</b></li>
+          <li>Improved skills in <b>responsive design</b> and <b>JS DOM manipulation</b></li>
+          <li>Gained experience deploying a dynamic frontend project</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-modern footer-web">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>About</h3>
+        <p>Passionate designer & developer crafting modern digital experiences. Specialized in graphic design, UI/UX, web, and game development.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="projects-web.html">Web Projects</a></li>
+          <li><a href="projects-uiux.html">UI/UX Projects</a></li>
+          <li><a href="projects-graphic.html">Graphic Projects</a></li>
+          <li><a href="projects-game.html">Game Projects</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="profile-about.html">About Me</a></li>
+          <li><a href="profile-contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h3>Connect</h3>
+        <div class="footer-social-icons">
+          <a href="#" class="icon linkedin" title="LinkedIn" target="_blank"><svg width="24" height="24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg></a>
+          <a href="https://instagram.com/i_am_.walker" class="icon instagram" title="Instagram: @i_am_.walker" target="_blank"><svg width="24" height="24" fill="currentColor"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.86.7-1.45.92-.46.17-1.26.354-2.43.41-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.41-.59-.22-1.01-.48-1.45-.92-.44-.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43-.058-1.266-.07-1.65-.07-4.85s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41 1.266-.058 1.65-.07 4.85-.07zm0-2.2c-3.259 0-3.667.012-4.947.07-1.276.058-2.147.24-2.89.51-.8.29-1.48.68-2.15 1.35-.67.67-1.06 1.35-1.35 2.15-.27.74-.452 1.614-.51 2.89-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.058 1.276.24 2.147.51 2.89.29.8.68 1.48 1.35 2.15.67.67 1.35 1.06 2.15 1.35.74.27 1.614.452 2.89.51 1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.276-.058 2.147-.24 2.89-.51.8-.29 1.48-.68 2.15-1.35.67-.67 1.06-1.35 1.35-2.15.27-.74.452-1.614.51-2.89.058-1.28.07-1.688.07-4.947s-.012-3.667-.07-4.947c-.058-1.276-.24-2.147-.51-2.89-.29-.8-.68-1.48-1.35-2.15-.67-.67-1.35-1.06-2.15-1.35-.74-.27-1.614-.452-2.89-.51-1.28-.058-1.688-.07-4.947-.07z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.4" cy="5.6" r="1.44"/></svg></a>
+          <a href="mailto:amankumar1948sahu@gmail.com" class="icon gmail" title="Gmail" target="_blank"><svg width="24" height="24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20v-9.99l7.99 7.99c.39.39 1.02.39 1.41 0L20 10.01V20H4z"/></svg></a>
+          <a href="https://github.com/amankuamr" class="icon github" title="GitHub" target="_blank"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.468-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.984-.399 3.003-.404 1.018.005 2.046.138 3.006.404 2.289-1.552 3.295-1.23 3.295-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.371.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .321.218.694.825.576C20.565 21.796 24 17.299 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p>Email: <a href="mailto:amankumar1948sahu@gmail.com">amankumar1948sahu@gmail.com</a></p>
+        <p>Location: Ranchi, Jharkhand, India</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Aman Kumar. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="scripts/main.js"></script>
+  <script>
+    const blocks = document.querySelectorAll('.case-block');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    blocks.forEach(block => {
+      observer.observe(block);
+    });
+  </script>
+</body>
+</html>

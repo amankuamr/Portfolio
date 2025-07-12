@@ -212,7 +212,7 @@
 </head>
 <body>
   <nav class="navbar">
-    <div class="nav-logo"><img src="images/signature.png" alt="Signature" style="height:40px;"></div>
+    <a href="index.html" class="nav-logo"><img src="images/signature.png" alt="Signature" style="height:40px;"></a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="skills.html">Skills</a></li>
@@ -451,6 +451,7 @@
       <div class="modal-actions" style="display:flex;gap:1.2rem;justify-content:center;">
         <button id="modalView" target="_blank">View</button>
         <button id="modalSource" target="_blank">View Source</button>
+        <button id="modalCaseStudy" style="display:none; background:#ffcc00; color:#181a20; font-weight:700;" target="_blank">Case Study</button>
       </div>
     </div>
   </div>
@@ -462,7 +463,6 @@
         var date = card.querySelector('.project-date').textContent;
         document.getElementById('modalTitle').textContent = title;
         document.getElementById('modalDate').textContent = date;
-        // You can set these URLs dynamically if you store them in your data
         // Set View button link for each project
         if (title === 'Cognite') {
           document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/cognite/', '_blank'); };
@@ -482,8 +482,17 @@
           document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/Pixels/', '_blank'); };
         } else if (title === 'Moviez') {
           document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/Moviez', '_blank'); };
+          // Show Case Study button for Moviez
+          var caseBtn = document.getElementById('modalCaseStudy');
+          caseBtn.style.display = 'inline-block';
+          caseBtn.onclick = function() { window.location.href = 'moviez-case-study.html'; };
         } else {
           document.getElementById('modalView').onclick = function() { alert('Demo link not set.'); };
+          document.getElementById('modalCaseStudy').style.display = 'none';
+        }
+        // Hide Case Study button for non-Moviez projects
+        if (title !== 'Moviez') {
+          document.getElementById('modalCaseStudy').style.display = 'none';
         }
         document.getElementById('modalSource').onclick = function() {
           var caseStudyProject = encodeURIComponent(title);
