@@ -382,6 +382,31 @@
     .modal-close:hover {
       background: #b91c4b;
     }
+    @media (max-width: 600px) {
+      .modal-actions {
+        flex-direction: column;
+        gap: 0.7rem !important;
+        width: 100%;
+        align-items: stretch;
+        box-sizing: border-box;
+      }
+      .modal-actions button {
+        padding: 1rem 0.5rem;
+        font-size: 1.08rem;
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 8px;
+        margin: 0;
+      }
+      .modal {
+        padding: 1.1rem 0.5rem 1rem 0.5rem !important;
+        min-width: 0 !important;
+        width: 98vw !important;
+        max-width: 99vw !important;
+        box-sizing: border-box;
+      }
+    }
   </style>
   <script src="scripts/main.js"></script>
 
@@ -402,53 +427,59 @@
     </div>
   </div>
   <script>
-    // Add click event to all project cards
-    document.querySelectorAll('.project-card').forEach(function(card) {
-      card.addEventListener('click', function() {
-        var title = card.querySelector('.project-title').textContent;
-        var date = card.querySelector('.project-date').textContent;
-        document.getElementById('modalTitle').textContent = title;
-        document.getElementById('modalDate').textContent = date;
-        // Show only the relevant button set
-        if (title === 'Portfolio Project') {
-          document.getElementById('modalPortfolioActions').style.display = 'flex';
-          document.getElementById('modalDefaultActions').style.display = 'none';
-          document.getElementById('modalPortfolio1').onclick = function() { window.open('https://amankumar.framer.ai/', '_blank'); };
-          document.getElementById('modalPortfolio2').onclick = function() { window.open('https://amankumarr.framer.website/', '_blank'); };
-        } else if (title === 'Portfolio Website') {
-          document.getElementById('modalPortfolioActions').style.display = 'none';
-          document.getElementById('modalDefaultActions').style.display = 'flex';
-          document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/Aman-Kumar/', '_blank'); };
-          document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
-        } else if (title === 'Car Rental Service') {
-          document.getElementById('modalPortfolioActions').style.display = 'none';
-          document.getElementById('modalDefaultActions').style.display = 'flex';
-          document.getElementById('modalView').onclick = function() { window.open('https://bigdeal.framer.ai/', '_blank'); };
-          document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
-        } else if (title === 'BWStory UI/Redesign') {
-          document.getElementById('modalPortfolioActions').style.display = 'none';
-          document.getElementById('modalDefaultActions').style.display = 'flex';
-          document.getElementById('modalView').onclick = function() { window.open('https://www.figma.com/proto/zzi5gTAtTssp64YYucCVTw/project?node-id=398-2&t=S1NjKN7WvByqpRVG-1', '_blank'); };
-          document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
-        } else if (title === 'Moviez') {
-          document.getElementById('modalPortfolioActions').style.display = 'none';
-          document.getElementById('modalDefaultActions').style.display = 'flex';
-          document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/Moviez', '_blank'); };
-          var sourceBtn = document.getElementById('modalSource');
-          sourceBtn.textContent = 'Design';
-          sourceBtn.onclick = function() { window.open('https://www.figma.com/proto/4ape8cXUQTdsbIITduIfPX/Untitled?page-id=0%3A1&node-id=1-2&p=f&viewport=311%2C204%2C0.41&t=HA3dTa6vGpPgcS2y-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2', '_blank'); };
-          var caseBtn = document.createElement('button');
-          caseBtn.textContent = 'Case Study';
-          caseBtn.onclick = function() { window.location.href = 'moviez-case-study.html'; };
-          document.getElementById('modalDefaultActions').appendChild(caseBtn);
-        } else {
-          document.getElementById('modalPortfolioActions').style.display = 'none';
-          document.getElementById('modalDefaultActions').style.display = 'flex';
-          document.getElementById('modalView').onclick = function() { alert('Demo link not set.'); };
-          document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
-        }
-        document.getElementById('modalBackdrop').style.display = 'flex';
+    // Add click event to all project cards (no touchstart)
+    function openModal(card) {
+      var title = card.querySelector('.project-title').textContent;
+      var date = card.querySelector('.project-date').textContent;
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDate').textContent = date;
+      // Reset modalDefaultActions (remove extra buttons except View/Source)
+      var defaultActions = document.getElementById('modalDefaultActions');
+      Array.from(defaultActions.querySelectorAll('button')).forEach(function(btn, idx) {
+        if (btn.id !== 'modalView' && btn.id !== 'modalSource') btn.remove();
       });
+      // Show only the relevant button set
+      if (title === 'Portfolio Project') {
+        document.getElementById('modalPortfolioActions').style.display = 'flex';
+        document.getElementById('modalDefaultActions').style.display = 'none';
+        document.getElementById('modalPortfolio1').onclick = function() { window.open('https://amankumar.framer.ai/', '_blank'); };
+        document.getElementById('modalPortfolio2').onclick = function() { window.open('https://amankumarr.framer.website/', '_blank'); };
+      } else if (title === 'Portfolio Website') {
+        document.getElementById('modalPortfolioActions').style.display = 'none';
+        document.getElementById('modalDefaultActions').style.display = 'flex';
+        document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/Aman-Kumar/', '_blank'); };
+        document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
+      } else if (title === 'Car Rental Service') {
+        document.getElementById('modalPortfolioActions').style.display = 'none';
+        document.getElementById('modalDefaultActions').style.display = 'flex';
+        document.getElementById('modalView').onclick = function() { window.open('https://bigdeal.framer.ai/', '_blank'); };
+        document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
+      } else if (title === 'BWStory UI/Redesign') {
+        document.getElementById('modalPortfolioActions').style.display = 'none';
+        document.getElementById('modalDefaultActions').style.display = 'flex';
+        document.getElementById('modalView').onclick = function() { window.open('https://www.figma.com/proto/zzi5gTAtTssp64YYucCVTw/project?node-id=398-2&t=S1NjKN7WvByqpRVG-1', '_blank'); };
+        document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
+      } else if (title === 'Moviez') {
+        document.getElementById('modalPortfolioActions').style.display = 'none';
+        document.getElementById('modalDefaultActions').style.display = 'flex';
+        document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/Moviez', '_blank'); };
+        var sourceBtn = document.getElementById('modalSource');
+        sourceBtn.textContent = 'Design';
+        sourceBtn.onclick = function() { window.open('https://www.figma.com/proto/4ape8cXUQTdsbIITduIfPX/Untitled?page-id=0%3A1&node-id=1-2&p=f&viewport=311%2C204%2C0.41&t=HA3dTa6vGpPgcS2y-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2', '_blank'); };
+        var caseBtn = document.createElement('button');
+        caseBtn.textContent = 'Case Study';
+        caseBtn.onclick = function() { window.location.href = 'moviez-case-study.html'; };
+        defaultActions.appendChild(caseBtn);
+      } else {
+        document.getElementById('modalPortfolioActions').style.display = 'none';
+        document.getElementById('modalDefaultActions').style.display = 'flex';
+        document.getElementById('modalView').onclick = function() { alert('Demo link not set.'); };
+        document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
+      }
+      document.getElementById('modalBackdrop').style.display = 'flex';
+    }
+    document.querySelectorAll('.project-card').forEach(function(card) {
+      card.addEventListener('click', function() { openModal(card); });
     });
     document.getElementById('modalClose').onclick = function() {
       document.getElementById('modalBackdrop').style.display = 'none';

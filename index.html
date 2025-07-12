@@ -1114,21 +1114,7 @@
         }
       }
     </style>
-    <!-- Project Modal Popup -->
-    <div id="projectModal" class="modal-overlay" style="display:none;">
-      <div class="modal-content">
-        <span class="modal-close" id="modalClose">&times;</span>
-        <h3 id="modalTitle"></h3>
-        <div class="modal-tag" id="modalTag"></div>
-        <div class="modal-desc" id="modalDesc"></div>
-        <div class="modal-actions">
-          <button class="modal-btn view-btn">View</button>
-          <button class="modal-btn source-btn">View Source</button>
-          <button class="modal-btn process-btn">Process</button>
-        </div>
-      </div>
-    </div>
-  </main>
+      </main>
 
   <!-- Auto-scrolling picture bar -->
   <div class="scrolling-picture-bar-wrapper" style="width:100%;overflow:visible;min-height:200px;background:#f7f7fa;padding:3.5rem 0 3.5rem 0;box-shadow:0 -2px 12px rgba(120,115,245,0.07);margin-top:2.5rem;display:flex;align-items:center;justify-content:center;">
@@ -1303,67 +1289,170 @@
           console.log('mouseleave on timeline card');
         });
       });
-    });
-  </script>
-  <script>
-    // Modal logic for project cards
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('click', function() {
-        const title = this.getAttribute('data-title');
-        const tag = this.getAttribute('data-tag');
+
+      // Modal popup for recent project cards (UI/UX style)
+      function openModal(card) {
+        var title = card.getAttribute('data-title') || '';
+        var tag = card.getAttribute('data-tag') || '';
+        var desc = card.getAttribute('data-desc') || '';
         document.getElementById('modalTitle').textContent = title;
-        document.getElementById('modalDesc').textContent = this.getAttribute('data-desc');
-        document.getElementById('modalTag').textContent = tag;
-        // Set View button link for Cognite
-        const viewBtn = document.querySelector('.modal-btn.view-btn');
-        const sourceBtn = document.querySelector('.modal-btn.source-btn');
-        const processBtn = document.querySelector('.modal-btn.process-btn');
+        document.getElementById('modalDate').textContent = tag;
+        document.getElementById('modalDesc').textContent = desc;
+        var defaultActions = document.getElementById('modalDefaultActions');
+        Array.from(defaultActions.querySelectorAll('button')).forEach(function(btn, idx) {
+          if (btn.id !== 'modalView' && btn.id !== 'modalSource') btn.remove();
+        });
+        document.getElementById('modalPortfolioActions').style.display = 'none';
+        document.getElementById('modalDefaultActions').style.display = 'flex';
+        // Set up actions for each project
         if (title === 'Cognite') {
-          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/cognite/', '_blank'); };
+          document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/cognite/', '_blank'); };
+          document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
         } else if (title === 'Moviez' && tag === 'UI/UX Design') {
-          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/Moviez/', '_blank'); };
+          document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/Moviez/', '_blank'); };
+          var sourceBtn = document.getElementById('modalSource');
           sourceBtn.textContent = 'Prototype';
           sourceBtn.onclick = function() { window.open('https://www.figma.com/proto/4ape8cXUQTdsbIITduIfPX/Untitled?page-id=0%3A1&node-id=1-2&p=f&viewport=1166%2C-194%2C0.56&t=4xVtkY8x2orP6fsD-1&scaling=scale-down&content-scaling=fixed', '_blank'); };
-          processBtn.style.display = 'inline-block';
-          processBtn.onclick = function() { alert('Process link not set.'); };
+          var caseBtn = document.createElement('button');
+          caseBtn.textContent = 'Case Study';
+          caseBtn.onclick = function() { window.location.href = 'moviez-case-study.html'; };
+          defaultActions.appendChild(caseBtn);
         } else if (title === 'Moviez' && tag === 'Web Development') {
-          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/Moviez/', '_blank'); };
+          document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/Moviez/', '_blank'); };
+          var sourceBtn = document.getElementById('modalSource');
           sourceBtn.textContent = 'View Source';
           sourceBtn.onclick = function() { alert('Source link not set.'); };
-          processBtn.style.display = 'none';
-          processBtn.onclick = null;
         } else if (title === 'BWStory' && tag === 'UI/UX Design') {
-          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/BWStory', '_blank'); };
+          document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/BWStory', '_blank'); };
+          var sourceBtn = document.getElementById('modalSource');
           sourceBtn.textContent = 'Prototype';
           sourceBtn.onclick = function() { window.open('https://www.figma.com/design/JbiVrQtZ7C6YIU4SvP8JgK/Prototype?node-id=398-2&p=f', '_blank'); };
-          processBtn.style.display = 'none';
-          processBtn.onclick = null;
         } else if (title === 'Password Manager') {
-          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/password-manager/', '_blank'); };
+          document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/password-manager/', '_blank'); };
+          document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
         } else if (title === 'File Format Converter') {
-          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/converter/', '_blank'); };
+          document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/converter/', '_blank'); };
+          document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
         } else if (title === 'Pixels') {
-          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/Pixels/', '_blank'); };
+          document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/Pixels/', '_blank'); };
+          document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
         } else {
-          viewBtn.onclick = function() { alert('Demo link not set.'); };
-          sourceBtn.textContent = 'View Source';
-          sourceBtn.onclick = function() { alert('Source link not set.'); };
-          processBtn.style.display = 'none';
-          processBtn.onclick = null;
+          document.getElementById('modalView').onclick = function() { alert('Demo link not set.'); };
+          document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
         }
-        document.getElementById('projectModal').style.display = 'flex';
-      });
-    });
-    document.getElementById('modalClose').onclick = function() {
-      document.getElementById('projectModal').style.display = 'none';
-    };
-    window.onclick = function(event) {
-      if (event.target === document.getElementById('projectModal')) {
-        document.getElementById('projectModal').style.display = 'none';
+        document.getElementById('modalBackdrop').style.display = 'flex';
+        // Animation: add .open class after a short delay to trigger transition
+        var modal = document.getElementById('projectModal');
+        modal.classList.remove('open');
+        setTimeout(function() { modal.classList.add('open'); }, 10);
       }
-    };
-
-    // (navbar animation logic moved to scripts/main.js)
+      document.querySelectorAll('.project-card').forEach(function(card) {
+        card.addEventListener('click', function() { openModal(card); });
+      });
+      document.getElementById('modalClose').onclick = function() {
+        document.getElementById('modalBackdrop').style.display = 'none';
+        document.getElementById('projectModal').classList.remove('open');
+      };
+      document.getElementById('modalBackdrop').onclick = function(e) {
+        if (e.target === this) {
+          this.style.display = 'none';
+          document.getElementById('projectModal').classList.remove('open');
+        }
+      };
+    });
   </script>
+
+  <style>
+    .modal-actions button {
+      background: #2d6cdf;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.7rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin: 0 0.2rem;
+      box-shadow: 0 2px 8px rgba(45,108,223,0.07);
+    }
+    .modal-actions button:disabled {
+      background: #bfc9d9;
+      cursor: not-allowed;
+    }
+    .modal-actions button:hover:not(:disabled) {
+      background: #174ea6;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #e94f7c;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .modal-close:hover {
+      background: #b91c4b;
+    }
+    .modal {
+      opacity: 0;
+      transform: scale(0.96) translateY(30px);
+      transition: opacity 0.32s cubic-bezier(.22,1.12,.32,1.01), transform 0.32s cubic-bezier(.22,1.12,.32,1.01);
+    }
+    .modal.open {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    @media (max-width: 600px) {
+      .modal-actions {
+        flex-direction: column;
+        gap: 0.7rem !important;
+        width: 100%;
+        align-items: stretch;
+        box-sizing: border-box;
+      }
+      .modal-actions button {
+        padding: 1rem 0.5rem;
+        font-size: 1.08rem;
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 8px;
+        margin: 0;
+      }
+      .modal {
+        padding: 1.1rem 0.5rem 1rem 0.5rem !important;
+        min-width: 0 !important;
+        width: 98vw !important;
+        max-width: 99vw !important;
+        box-sizing: border-box;
+      }
+    }
+  </style>
+
+  <!-- Modal Popup -->
+  <div class="modal-backdrop" id="modalBackdrop" style="display:none;align-items:center;justify-content:center;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.25);z-index:1000;">
+    <div class="modal" id="projectModal" style="background:#fff;border-radius:18px;box-shadow:0 8px 32px rgba(45,108,223,0.18);padding:2.2rem 2rem 1.5rem 2rem;min-width:320px;max-width:95vw;max-height:90vh;position:relative;text-align:center;">
+      <button class="modal-close" id="modalClose" style="position:absolute;top:1rem;right:1rem;background:#e94f7c;color:#fff;border:none;border-radius:50%;width:28px;height:28px;font-size:1.1rem;cursor:pointer;transition:background 0.2s;">&times;</button>
+      <div class="project-title" id="modalTitle" style="font-size:1.3rem;font-weight:700;color:#2d6cdf;margin-bottom:0.5rem;"></div>
+      <div class="project-date" id="modalDate" style="font-size:1.05em;color:#444;font-weight:400;opacity:0.92;margin-bottom:1.5rem;"></div>
+      <div class="project-desc" id="modalDesc" style="font-size:1.05em;color:#444;font-weight:400;opacity:0.92;margin-bottom:1.5rem;"></div>
+      <div class="modal-actions" id="modalPortfolioActions" style="display:none;gap:1.2rem;justify-content:center;">
+        <button id="modalPortfolio1" target="_blank">Portfolio 1</button>
+        <button id="modalPortfolio2" target="_blank">Portfolio 2</button>
+      </div>
+      <div class="modal-actions" id="modalDefaultActions" style="display:none;gap:1.2rem;justify-content:center;">
+        <button id="modalView" target="_blank">View</button>
+        <button id="modalSource" target="_blank">View Source</button>
+      </div>
+    </div>
+  </div>
+  // (navbar animation logic moved to scripts/main.js)
 </body>
 </html>
