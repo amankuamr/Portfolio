@@ -667,17 +667,17 @@
     <section class="recent-projects">
       <h2>Recent Projects</h2>
       <div class="projects-list six-projects">
-        <div class="project-card" data-title="Moviez" data-desc="A movie information and discovery web app." data-tag="Web Development">
-          <span class="project-icon">🎬</span>
-          Moviez
-          <span class="project-tag web">Web Development</span>
-          <div class="project-desc">A movie information and discovery web app.</div>
-        </div>
         <div class="project-card" data-title="Pixels" data-desc="A social media app." data-tag="Web Development">
           <span class="project-icon">🖼️</span>
           Pixels
           <span class="project-tag web">Web Development</span>
           <div class="project-desc">A social media app.</div>
+        </div>
+        <div class="project-card" data-title="Moviez" data-desc="A movie information and discovery web app." data-tag="UI/UX Design">
+          <span class="project-icon">🎬</span>
+          Moviez
+          <span class="project-tag uiux">UI/UX Design</span>
+          <div class="project-desc">A movie information and discovery web app.</div>
         </div>
         <div class="project-card" data-title="Cognite" data-desc="A modern chatting app for real-time conversations." data-tag="Web Development">
           <span class="project-icon">💬</span>
@@ -685,23 +685,23 @@
           <span class="project-tag web">Web Development</span>
           <div class="project-desc">A modern chatting app for real-time conversations.</div>
         </div>
-        <div class="project-card" data-title="ShotChat" data-desc="A Twitter-type clone with added chatting features." data-tag="Web Development">
-          <span class="project-icon">🐦</span>
-          ShotChat
+        <div class="project-card" data-title="Moviez" data-desc="A movie information and discovery web app." data-tag="Web Development">
+          <span class="project-icon">🎬</span>
+          Moviez
           <span class="project-tag web">Web Development</span>
-          <div class="project-desc">A Twitter-type clone with added chatting features.</div>
+          <div class="project-desc">A movie information and discovery web app.</div>
+        </div>
+        <div class="project-card" data-title="BWStory" data-desc="UI/UX and web prototype for BWStory, prototyped in Figma and built with HTML, CSS, and JavaScript." data-tag="UI/UX Design">
+          <span class="project-icon">📖</span>
+          BWStory
+          <span class="project-tag uiux">UI/UX Design</span>
+          <div class="project-desc">UI/UX and web prototype for BWStory, prototyped in Figma and built with HTML, CSS, and JavaScript.</div>
         </div>
         <div class="project-card" data-title="Poster for Tech Fest" data-desc="A vibrant poster designed for a college tech fest." data-tag="Graphic Design">
           <span class="project-icon">🖼️</span>
           Poster for Tech Fest
           <span class="project-tag graphic">Graphic Design</span>
           <div class="project-desc">A vibrant poster designed for a college tech fest.</div>
-        </div>
-        <div class="project-card" data-title="Boarding School UI/UX" data-desc="A user-friendly interface and experience for a boarding school platform." data-tag="UI/UX Design">
-          <span class="project-icon">🏫</span>
-          Boarding School UI/UX
-          <span class="project-tag uiux">UI/UX Design</span>
-          <div class="project-desc">A user-friendly interface and experience for a boarding school platform.</div>
         </div>
       </div>
     </section>
@@ -1123,6 +1123,7 @@
         <div class="modal-actions">
           <button class="modal-btn view-btn">View</button>
           <button class="modal-btn source-btn">View Source</button>
+          <button class="modal-btn process-btn">Process</button>
         </div>
       </div>
     </div>
@@ -1308,25 +1309,46 @@
     document.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('click', function() {
         const title = this.getAttribute('data-title');
+        const tag = this.getAttribute('data-tag');
         document.getElementById('modalTitle').textContent = title;
         document.getElementById('modalDesc').textContent = this.getAttribute('data-desc');
-        document.getElementById('modalTag').textContent = this.getAttribute('data-tag');
+        document.getElementById('modalTag').textContent = tag;
         // Set View button link for Cognite
         const viewBtn = document.querySelector('.modal-btn.view-btn');
+        const sourceBtn = document.querySelector('.modal-btn.source-btn');
+        const processBtn = document.querySelector('.modal-btn.process-btn');
         if (title === 'Cognite') {
           viewBtn.onclick = function() { window.open('https://amankuamr.github.io/cognite/', '_blank'); };
-        } else if (title === 'ShotChat') {
-          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/shotchat/', '_blank'); };
+        } else if (title === 'Moviez' && tag === 'UI/UX Design') {
+          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/Moviez/', '_blank'); };
+          sourceBtn.textContent = 'Prototype';
+          sourceBtn.onclick = function() { window.open('https://www.figma.com/proto/4ape8cXUQTdsbIITduIfPX/Untitled?page-id=0%3A1&node-id=1-2&p=f&viewport=1166%2C-194%2C0.56&t=4xVtkY8x2orP6fsD-1&scaling=scale-down&content-scaling=fixed', '_blank'); };
+          processBtn.style.display = 'inline-block';
+          processBtn.onclick = function() { alert('Process link not set.'); };
+        } else if (title === 'Moviez' && tag === 'Web Development') {
+          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/Moviez/', '_blank'); };
+          sourceBtn.textContent = 'View Source';
+          sourceBtn.onclick = function() { alert('Source link not set.'); };
+          processBtn.style.display = 'none';
+          processBtn.onclick = null;
+        } else if (title === 'BWStory' && tag === 'UI/UX Design') {
+          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/BWStory', '_blank'); };
+          sourceBtn.textContent = 'Prototype';
+          sourceBtn.onclick = function() { window.open('https://www.figma.com/design/JbiVrQtZ7C6YIU4SvP8JgK/Prototype?node-id=398-2&p=f', '_blank'); };
+          processBtn.style.display = 'none';
+          processBtn.onclick = null;
         } else if (title === 'Password Manager') {
           viewBtn.onclick = function() { window.open('https://amankuamr.github.io/password-manager/', '_blank'); };
         } else if (title === 'File Format Converter') {
           viewBtn.onclick = function() { window.open('https://amankuamr.github.io/converter/', '_blank'); };
         } else if (title === 'Pixels') {
           viewBtn.onclick = function() { window.open('https://amankuamr.github.io/Pixels/', '_blank'); };
-        } else if (title === 'Moviez') {
-          viewBtn.onclick = function() { window.open('https://amankuamr.github.io/Moviez/', '_blank'); };
         } else {
           viewBtn.onclick = function() { alert('Demo link not set.'); };
+          sourceBtn.textContent = 'View Source';
+          sourceBtn.onclick = function() { alert('Source link not set.'); };
+          processBtn.style.display = 'none';
+          processBtn.onclick = null;
         }
         document.getElementById('projectModal').style.display = 'flex';
       });
