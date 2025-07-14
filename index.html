@@ -420,26 +420,50 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.18);
     }
     .resume-btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       margin-top: 1.2rem;
-      padding: 0.7rem 2.2rem;
-      background: linear-gradient(90deg, #ff6ec4 0%, #7873f5 100%);
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.08rem;
-      border: none;
-      border-radius: 999px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      cursor: pointer;
+      background: transparent;
+      position: relative;
+      padding: 5px 15px;
+      font-size: 17px;
+      font-weight: 600;
       text-decoration: none;
-      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+      border: 1.5px solid #2d6cdf;
+      border-radius: 25px;
+      outline: none;
+      overflow: hidden;
+      color: #2d6cdf;
+      transition: color 0.3s 0.1s ease-out;
+      text-align: center;
+    }
+    .resume-btn span {
+      margin: 10px;
+    }
+    .resume-btn::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      content: '';
+      border-radius: 50%;
+      display: block;
+      width: 20em;
+      height: 20em;
+      left: -5em;
+      text-align: center;
+      transition: box-shadow 0.5s ease-out;
+      z-index: -1;
     }
     .resume-btn:hover {
-      background: linear-gradient(90deg, #7873f5 0%, #ff6ec4 100%);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-      transform: translateY(-2px) scale(1.04);
       color: #fff;
-      text-decoration: none;
+      border: 1.5px solid #2d6cdf;
+    }
+    .resume-btn:hover::before {
+      box-shadow: inset 0 0 0 10em #2d6cdf;
     }
   /* Abstract colorful dots for hero profile */
     .hero-dot {
@@ -623,7 +647,7 @@
               <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.468-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.984-.399 3.003-.404 1.018.005 2.046.138 3.006.404 2.289-1.552 3.295-1.23 3.295-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.371.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .321.218.694.825.576C20.565 21.796 24 17.299 24 12c0-6.627-5.373-12-12-12z"/></svg>
             </a>
           </div>
-          <a href="https://drive.google.com/file/d/18ahDU5fBqQdD3CxSb7fmZC-Q16GQIW73/view?usp=drive_link" class="resume-btn" target="_blank">Resume</a>
+          <button class="btn-12" onclick="window.open('https://drive.google.com/file/d/18ahDU5fBqQdD3CxSb7fmZC-Q16GQIW73/view?usp=drive_link','_blank')"><span>Resume</span></button>
         </div>
         <div class="hero-img-col">
           <div class="hero-img-modern-wrapper">
@@ -818,54 +842,111 @@
           <span class="ach-icon">💼</span>
           <div class="ach-title">Plasmid UI/UX Internship</div>
           <span class="timeline-tag uiux ach-tag">UI/UX</span>
-          <div class="ach-date">2024-01-15</div>
+          <div class="ach-date">2025-03-04</div>
           <div class="ach-desc">Completed a UI/UX internship at Plasmid, recognized for outstanding design solutions and user research.</div>
         </div>
         <div class="achievement-card" data-title="UI/UX Recommendation Letter" data-link="https://drive.google.com/file/d/1UdmiCk5UxL29jiJwxKoxEV09RhSNsjqL/view?usp=sharing">
           <span class="ach-icon">📄</span>
           <div class="ach-title">UI/UX Recommendation Letter</div>
           <span class="timeline-tag uiux ach-tag">UI/UX</span>
-          <div class="ach-date">2024-05-15</div>
+          <div class="ach-date">2025-03-04</div>
           <div class="ach-desc">Received a recommendation letter for outstanding performance and contributions in UI/UX design.</div>
         </div>
         <div class="achievement-card" data-title="GDSC Core Graphics Design Member" data-link="https://drive.google.com/file/d/10L83ME1laF5QwwH5xnMHg3vkTWKPzMFs/view?usp=drive_link">
           <span class="ach-icon">🎨</span>
           <div class="ach-title">GDSC Core Graphics Design Member</div>
           <span class="timeline-tag graphics ach-tag">Graphics</span>
-          <div class="ach-date">2023-09-01</div>
+          <div class="ach-date">2025-03-04</div>
           <div class="ach-desc">Selected as a core member for graphics design in the Google Developer Student Clubs, contributing to event branding and visual content.</div>
         </div>
       </div>
       <div style="width:100%;display:flex;justify-content:center;margin-top:1.2rem;">
-        <a href="achievements.html" class="view-all-btn">View All</a>
+        <button class="learn-more" onclick="window.location.href='achievements.html'">
+          <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+          </span>
+          <span class="button-text">View All</span>
+        </button>
       </div>
     </section>
     <style>
-      .view-all-btn {
+      /* From Uiverse.io by cssbuttons-io */
+      button {
+        position: relative;
         display: inline-block;
-        padding: 0.8rem 2.2rem;
-        background: linear-gradient(90deg,#ff6ec4 0%,#7873f5 100%);
-        color: #fff;
-        font-weight: 700;
-        font-size: 1.08rem;
-        border: none;
-        border-radius: 999px;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
         cursor: pointer;
-        text-decoration: none;
-        transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
-      }
-      .view-all-btn:hover, .view-all-btn:focus {
-        background: linear-gradient(90deg,#7873f5 0%,#ff6ec4 100%);
-        box-shadow: 0 8px 32px rgba(120,115,245,0.18);
-        transform: translateY(-2px) scale(1.04);
-        color: #fff;
         outline: none;
+        border: 0;
+        vertical-align: middle;
+        text-decoration: none;
+        background: transparent;
+        padding: 0;
+        font-size: inherit;
+        font-family: inherit;
       }
-      .view-all-btn:active {
-        background: linear-gradient(90deg,#ff6ec4 0%,#7873f5 100%);
-        box-shadow: 0 2px 8px rgba(120,115,245,0.10);
-        transform: scale(0.97);
+      button.learn-more {
+        width: 12rem;
+        height: auto;
+      }
+      button.learn-more .circle {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        position: relative;
+        display: block;
+        margin: 0;
+        width: 3rem;
+        height: 3rem;
+        background: #3946ff;
+        border-radius: 1.625rem;
+      }
+      button.learn-more .circle .icon {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: #fff;
+      }
+      button.learn-more .circle .icon.arrow {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        left: 0.625rem;
+        width: 1.125rem;
+        height: 0.125rem;
+        background: none;
+      }
+      button.learn-more .circle .icon.arrow::before {
+        position: absolute;
+        content: "";
+        top: -0.29rem;
+        right: 0.0625rem;
+        width: 0.625rem;
+        height: 0.625rem;
+        border-top: 0.125rem solid #fff;
+        border-right: 0.125rem solid #fff;
+        transform: rotate(45deg);
+      }
+      button.learn-more .button-text {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0.75rem 0;
+        margin: 0 0 0 1.85rem;
+        color: #282936;
+        font-weight: 700;
+        line-height: 1.6;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      button:hover .circle {
+        width: 100%;
+      }
+      button:hover .circle .icon.arrow {
+        background: #fff;
+        transform: translate(1rem, 0);
+      }
+      button:hover .button-text {
         color: #fff;
       }
     </style>
@@ -1605,6 +1686,108 @@
   </script>
 
   <style>
+    /* From Uiverse.io by doniaskima */
+    .btn-12,
+    .btn-12 *,
+    .btn-12 :after,
+    .btn-12 :before,
+    .btn-12:after,
+    .btn-12:before {
+      border: 0 solid;
+      box-sizing: border-box;
+    }
+    .btn-12 {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-appearance: button;
+      background: linear-gradient(90deg,#ff6ec4 0%,#7873f5 100%);
+      color: #fff;
+      cursor: pointer;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-size: 100%;
+      font-weight: 900;
+      line-height: 1.5;
+      margin: 0;
+      -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+      padding: 0;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-12 span {
+      color: #fff;
+      transition: color 0.2s, background 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+    .btn-12:hover span {
+      color: transparent;
+      background: linear-gradient(90deg,#ff6ec4 0%,#7873f5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    .btn-12:disabled {
+      cursor: default;
+    }
+    .btn-12:-moz-focusring {
+      outline: auto;
+    }
+    .btn-12 svg {
+      display: block;
+      vertical-align: middle;
+    }
+    .btn-12 [hidden] {
+      display: none;
+    }
+    .btn-12 {
+      border-radius: 99rem;
+      border-width: 2px;
+      overflow: hidden;
+      padding: 0.8rem 3rem;
+      position: relative;
+    }
+    .btn-12 span {
+      color: #fff;
+      mix-blend-mode: unset;
+    }
+    .btn-12:after,
+    .btn-12:before {
+      background: linear-gradient(
+        90deg,
+        #fff 25%,
+        transparent 0,
+        transparent 50%,
+        #fff 0,
+        #fff 75%,
+        transparent 0
+      );
+      content: "";
+      inset: 0;
+      position: absolute;
+      transform: translateY(var(--progress, 100%));
+      transition: transform 0.2s ease;
+    }
+    .btn-12:after {
+      --progress: -100%;
+      background: linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 25%,
+        #fff 0,
+        #fff 50%,
+        transparent 0,
+        transparent 75%,
+        #fff 0
+      );
+      z-index: -1;
+    }
+    .btn-12:hover:after,
+    .btn-12:hover:before {
+      --progress: 0;
+    }
     .modal-actions button {
       background: #2d6cdf;
       color: #fff;
