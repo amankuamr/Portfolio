@@ -145,6 +145,151 @@ body {
   animation: fadeInUp 0.8s;
   overflow: hidden;
 }
+
+/* Social Icons Redesign (Uiverse.io by jamik-dev) */
+ul.example-2 {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 2.5rem;
+  padding-left: 0;
+}
+.example-2 .icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+.example-2 .icon-content .tooltip {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: #222;
+  z-index: 2;
+}
+.example-2 .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  bottom: -40px;
+}
+.example-2 .icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+.example-2 .icon-content a[data-social="linkedin"] svg {
+  color: #0077b5;
+}
+.example-2 .icon-content a[data-social="github"] svg {
+  color: #333;
+}
+.example-2 .icon-content a[data-social="gmail"] svg {
+  color: #ea4335;
+}
+/* Instagram icon color is handled by SVG gradient fill in HTML */
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+.example-2 .icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  transition: color 0.3s, fill 0.3s;
+}
+.example-2 .icon-content a[data-social="instagram"] svg path,
+.example-2 .icon-content a[data-social="instagram"] svg circle {
+  transition: fill 0.3s;
+}
+.ig-animated-icon .ig-white-group {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.ig-animated-icon .ig-gradient-group {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.example-2 .icon-content a[data-social="instagram"]:hover .ig-white-group {
+  opacity: 1;
+}
+.example-2 .icon-content a[data-social="instagram"]:hover .ig-gradient-group {
+  opacity: 0;
+}
+.example-2 .icon-content a:hover {
+  color: white;
+}
+.example-2 .icon-content a:hover svg {
+  color: #fff !important;
+}
+.example-2 .icon-content a[data-social="instagram"]:hover svg path,
+.example-2 .icon-content a[data-social="instagram"]:hover svg circle {
+  fill: #fff !important;
+}
+.example-2 .icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+  z-index: 0;
+}
+.example-2 .icon-content a:hover .filled {
+  height: 100%;
+}
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+  background-color: #0077b5;
+}
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"] ~ .tooltip {
+  background-color: #333;
+}
+.example-2 .icon-content a[data-social="gmail"] .filled,
+.example-2 .icon-content a[data-social="gmail"] ~ .tooltip {
+  background-color: #ea4335;
+}
+.example-2 .icon-content a[data-social="instagram"] .filled {
+  background: linear-gradient(45deg, #f58529 0%, #dd2a7b 50%, #8134af 100%);
+}
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+  background-color: #e4405f;
+}
+.example-2 .icon-content a[data-social="spotify"] .filled,
+.example-2 .icon-content a[data-social="spotify"] ~ .tooltip {
+  background-color: #1db954;
+}
+.example-2 .icon-content a[data-social="pinterest"] .filled,
+.example-2 .icon-content a[data-social="pinterest"] ~ .tooltip {
+  background-color: #bd081c;
+}
+.example-2 .icon-content a[data-social="dribbble"] .filled,
+.example-2 .icon-content a[data-social="dribbble"] ~ .tooltip {
+  background-color: #ea4c89;
+}
+.example-2 .icon-content a[data-social="telegram"] .filled,
+.example-2 .icon-content a[data-social="telegram"] ~ .tooltip {
+  background-color: #0088cc;
+}
 .hero-img {
   width: 140px;
   height: 140px;
@@ -1049,3 +1194,37 @@ html {
         opacity: 0.5;
       }
     }
+
+/* Ensure social icon images are above effects */
+/* .example-2 .icon-content a img { position: relative; z-index: 2; }  -- removed for crossfade fix */
+
+/* Social icon crossfade effect */
+.icon-img-stack {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+.icon-img-stack img {
+  position: absolute;
+  left: 0; top: 0;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: opacity 0.35s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+}
+.icon-img-stack .icon-img-default {
+  opacity: 1;
+  z-index: 1;
+}
+.icon-content a:hover .icon-img-stack .icon-img-default {
+  opacity: 0;
+}
+.icon-img-stack .icon-img-hover {
+  opacity: 0;
+  z-index: 2;
+}
+.icon-content a:hover .icon-img-stack .icon-img-hover {
+  opacity: 1;
+}
