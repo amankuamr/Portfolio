@@ -664,6 +664,182 @@
       </div>
     </section>
 
+    <!-- Achievements Section -->
+    <style>
+      .recent-achievements-row {
+        display: flex;
+        gap: 2.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .achievement-card {
+        background: #fff;
+        border-radius: 1.3rem;
+        box-shadow: 0 4px 24px rgba(120,115,245,0.10), 0 2px 8px rgba(0,0,0,0.08);
+        padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+        min-width: 240px;
+        max-width: 300px;
+        flex: 1 1 260px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        border: 2px solid #e3e6ff;
+        margin-bottom: 1.5rem;
+        transition: box-shadow 0.18s, transform 0.18s;
+      }
+      .achievement-card:hover {
+        box-shadow: 0 8px 32px rgba(120,115,245,0.18);
+        transform: translateY(-7px) scale(1.04);
+      }
+      .achievement-card .ach-icon {
+        font-size: 2.4rem;
+        margin-bottom: 1.1rem;
+        color: #7873f5;
+      }
+      .achievement-card .ach-title {
+        font-size: 1.18rem;
+        font-weight: 700;
+        color: #2a254d;
+        margin-bottom: 0.4rem;
+        text-align: center;
+      }
+      .achievement-card .ach-tag {
+        margin-bottom: 0.2rem;
+      }
+      .achievement-card .ach-date {
+        font-size: 0.98rem;
+        color: #888;
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.5px;
+      }
+      .achievement-card .ach-desc {
+        font-size: 1.01rem;
+        color: #3d375a;
+        margin-top: 0.5rem;
+        text-align: center;
+        font-weight: 400;
+        opacity: 0.97;
+      }
+      @media (max-width: 900px) {
+        .recent-achievements-row {
+          gap: 1.2rem;
+        }
+        .achievement-card {
+          min-width: 180px;
+          max-width: 98vw;
+          padding: 1.5rem 0.7rem 1.2rem 0.7rem;
+        }
+      }
+      @media (max-width: 700px) {
+        .achievements-section {
+          padding-left: 1rem !important;
+          padding-right: 1rem !important;
+        }
+        .recent-achievements-row {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+      }
+    </style>
+    <section class="achievements-section" style="width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 3.5rem auto;padding:0 0 3.5rem 0;">
+      <h2 class="tiles-title">Explore My Achievements</h2>
+      <div class="recent-achievements-row">
+        <div class="achievement-card" data-title="Plasmid UI/UX Internship" data-link="https://drive.google.com/file/d/1tmveniuB3PazQ7q0VhHLnBSSzqRVUk8P/view?usp=drive_link">
+          <span class="ach-icon">💼</span>
+          <div class="ach-title">Plasmid UI/UX Internship</div>
+          <span class="timeline-tag uiux ach-tag">UI/UX</span>
+          <div class="ach-date">2024-01-15</div>
+          <div class="ach-desc">Completed a UI/UX internship at Plasmid, recognized for outstanding design solutions and user research.</div>
+        </div>
+        <div class="achievement-card" data-title="UI/UX Recommendation Letter" data-link="https://drive.google.com/file/d/1UdmiCk5UxL29jiJwxKoxEV09RhSNsjqL/view?usp=sharing">
+          <span class="ach-icon">📄</span>
+          <div class="ach-title">UI/UX Recommendation Letter</div>
+          <span class="timeline-tag uiux ach-tag">UI/UX</span>
+          <div class="ach-date">2024-05-15</div>
+          <div class="ach-desc">Received a recommendation letter for outstanding performance and contributions in UI/UX design.</div>
+        </div>
+        <div class="achievement-card" data-title="GDSC Core Graphics Design Member" data-link="https://drive.google.com/file/d/10L83ME1laF5QwwH5xnMHg3vkTWKPzMFs/view?usp=drive_link">
+          <span class="ach-icon">🎨</span>
+          <div class="ach-title">GDSC Core Graphics Design Member</div>
+          <span class="timeline-tag graphics ach-tag">Graphics</span>
+          <div class="ach-date">2023-09-01</div>
+          <div class="ach-desc">Selected as a core member for graphics design in the Google Developer Student Clubs, contributing to event branding and visual content.</div>
+        </div>
+      </div>
+      <div style="width:100%;display:flex;justify-content:center;margin-top:1.2rem;">
+        <a href="achievements.html" class="view-all-btn">View All</a>
+      </div>
+    </section>
+    <style>
+      .view-all-btn {
+        display: inline-block;
+        padding: 0.8rem 2.2rem;
+        background: linear-gradient(90deg,#ff6ec4 0%,#7873f5 100%);
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.08rem;
+        border: none;
+        border-radius: 999px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
+      }
+      .view-all-btn:hover, .view-all-btn:focus {
+        background: linear-gradient(90deg,#7873f5 0%,#ff6ec4 100%);
+        box-shadow: 0 8px 32px rgba(120,115,245,0.18);
+        transform: translateY(-2px) scale(1.04);
+        color: #fff;
+        outline: none;
+      }
+      .view-all-btn:active {
+        background: linear-gradient(90deg,#ff6ec4 0%,#7873f5 100%);
+        box-shadow: 0 2px 8px rgba(120,115,245,0.10);
+        transform: scale(0.97);
+        color: #fff;
+      }
+    </style>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.achievement-card').forEach(function(card) {
+          card.addEventListener('click', function(e) {
+            var title = card.getAttribute('data-title');
+            var link = card.getAttribute('data-link');
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDate').textContent = '';
+            document.getElementById('modalDesc').textContent = '';
+            document.getElementById('modalPortfolioActions').style.display = 'none';
+            document.getElementById('modalDefaultActions').style.display = 'flex';
+            var viewBtn = document.getElementById('modalView');
+            var sourceBtn = document.getElementById('modalSource');
+            viewBtn.textContent = 'View';
+            viewBtn.onclick = function() { window.open(link, '_blank'); };
+            sourceBtn.style.display = 'none';
+            document.getElementById('modalBackdrop').style.display = 'flex';
+            var modal = document.getElementById('projectModal');
+            modal.classList.remove('open');
+            setTimeout(function() { modal.classList.add('open'); }, 10);
+          });
+        });
+        // Restore source button on modal close
+        document.getElementById('modalClose').onclick = function() {
+          document.getElementById('modalBackdrop').style.display = 'none';
+          document.getElementById('modalSource').style.display = '';
+        };
+        document.getElementById('modalBackdrop').onclick = function(e) {
+          if (e.target === this) {
+            this.style.display = 'none';
+            document.getElementById('modalSource').style.display = '';
+          }
+        };
+      });
+    </script>
+
     <section class="recent-projects">
       <h2>Recent Projects</h2>
       <div class="projects-list six-projects">
@@ -1453,6 +1629,6 @@
       </div>
     </div>
   </div>
-  // (navbar animation logic moved to scripts/main.js)
+  
 </body>
 </html>
