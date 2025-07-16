@@ -177,15 +177,18 @@
         flex-direction: column;
         gap: 0.7rem;
         width: 100%;
-        align-items: stretch;
+        align-items: center;
       }
       .about-simple-buttons .btn {
         width: 100%;
-        max-width: 300px;
-        margin-right: 0 !important;
-        margin-bottom: 0.7rem;
+        min-width: 200px;
+        max-width: 340px;
+        margin: 0 0 0.7rem 0;
         font-size: 1em;
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   </style>
@@ -234,7 +237,7 @@
           <span class="project-tag web">TypeScript</span>
         </div>
         <div class="about-simple-buttons">
-          <a href="https://www.figma.com/design/y5ghBdMNKtP83NeU4XoaWP/Untitled?node-id=0-1&t=6VRDVtcjrZM6LfwV-1" target="_blank" class="btn" style="margin-right:1rem;">View Design</a>
+          <a href="https://www.figma.com/design/y5ghBdMNKtP83NeU4XoaWP/Untitled?node-id=0-1&t=6VRDVtcjrZM6LfwV-1" target="_blank" class="btn">View Design</a>
           <a href="https://github.com/amankuamr/Portfolio" target="_blank" class="btn">View Source</a>
         </div>
         <style>
@@ -247,7 +250,7 @@
           background-color: #171717;
           color: #fff;
           border: none;
-          border-radius: 5px;
+          border-radius: 999px;
           transition: all .4s;
           text-decoration: none;
           display: inline-flex;
@@ -256,7 +259,7 @@
           font-family: 'Montserrat', Arial, Helvetica, sans-serif;
         }
         .btn:hover {
-          border-radius: 5px;
+          border-radius: 999px;
           transform: translateY(-10px);
           box-shadow: 0 7px 0 -2px #f85959,
                       0 15px 0 -4px #39a2db,
