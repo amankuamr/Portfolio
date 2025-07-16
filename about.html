@@ -13,6 +13,15 @@
     body, html {
       font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     }
+    .navbar-boundary {
+      width: 100%;
+      height: 70px;
+      border: none;
+      margin: 0;
+      padding: 0;
+      pointer-events: none;
+      /* For debugging, you could add: border-bottom: 1px dashed red; */
+    }
     .about-simple-container {
       display: flex;
       align-items: flex-start;
@@ -86,7 +95,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-    }
+      }
     .about-simple-left {
       flex: 1 1 320px;
       display: flex;
@@ -234,6 +243,7 @@
       <span></span><span></span><span></span>
     </div>
   </nav>
+  <div class="navbar-boundary"></div>
   <main>
     <div class="about-simple-container">
       <div class="about-simple-left">
