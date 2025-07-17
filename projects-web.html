@@ -256,6 +256,21 @@
     </section>
     <section>
       <div class="projects-list">
+        <!-- 0. Reboot -->
+        <div class="project-card">
+          <div class="project-title">Reboot</div>
+          <div class="project-date">20 July 2025</div>
+          <div class="project-desc">A shoe shopping online website.</div>
+          <div class="project-tags-row">
+            <span class="project-tag web">HTML</span>
+            <span class="project-tag web">CSS</span>
+            <span class="project-tag web">JavaScript</span>
+            <span class="project-tag web">React</span>
+            <span class="project-tag web">Firebase</span>
+            <span class="project-tag web">Cloudinary</span>
+            <span class="project-tag web">TypeScript</span>
+          </div>
+        </div>
         <!-- 1. Pixels -->
         <div class="project-card">
           <div class="project-title">Pixels</div>
@@ -283,7 +298,7 @@
             <span class="project-tag web">Responsive</span>
           </div>
         </div>
-        <!-- 3. Shot Chat -->
+                <!-- 3. Shot Chat -->
         <div class="project-card">
           <div class="project-title">ShotChat</div>
           <div class="project-date">28 June 2025</div>
@@ -473,7 +488,9 @@
         document.getElementById('modalTitle').textContent = title;
         document.getElementById('modalDate').textContent = date;
         // Set View button link for each project
-        if (title === 'Cognite') {
+        if (title === 'Reboot') {
+          document.getElementById('modalView').onclick = function() { window.open('https://rebooot.vercel.app/', '_blank'); };
+        } else if (title === 'Cognite') {
           document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/cognite/', '_blank'); };
         } else if (title === 'ShotChat') {
           document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/shotchat/', '_blank'); };

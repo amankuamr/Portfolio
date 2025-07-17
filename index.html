@@ -1061,11 +1061,11 @@
     <section class="recent-projects">
       <h2>Recent Projects</h2>
       <div class="projects-list six-projects">
-        <div class="project-card" data-title="Pixels" data-desc="A social media app." data-tag="Web Development">
-          <span class="project-icon">🖼️</span>
-          Pixels
+        <div class="project-card" data-title="Reboot" data-desc="A shoe shopping online website." data-tag="Web Development">
+          <span class="project-icon">🛒</span>
+          Reboot
           <span class="project-tag web">Web Development</span>
-          <div class="project-desc">A social media app.</div>
+          <div class="project-desc">A shoe shopping online website.</div>
         </div>
         <div class="project-card" data-title="Moviez" data-desc="A movie information and discovery web app." data-tag="UI/UX Design">
           <span class="project-icon">🎬</span>
@@ -1272,6 +1272,16 @@
                 <span class="timeline-tag web">Web</span>
                 <span class="timeline-tag uiux">UI/UX</span>
                 <div class="timeline-view-desc">A movie information and discovery web app.</div>
+              </div>
+            </div>
+            <div class="timeline-view-item left">
+              <div class="timeline-view-dot"></div>
+              <div class="timeline-view-content left">
+                <div class="timeline-view-date">20 July 2025</div>
+                <div class="timeline-view-project">Reboot</div>
+                <span class="timeline-tag web">Web</span>
+                <span class="timeline-tag uiux">UI/UX</span>
+                <div class="timeline-view-desc">A shoe shopping online website.</div>
               </div>
             </div>
           </div>
@@ -1716,7 +1726,10 @@
         document.getElementById('modalPortfolioActions').style.display = 'none';
         document.getElementById('modalDefaultActions').style.display = 'flex';
         // Set up actions for each project
-        if (title === 'Cognite') {
+        if (title === 'Reboot') {
+          document.getElementById('modalView').onclick = function() { window.open('https://rebooot.vercel.app/', '_blank'); };
+          document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
+        } else if (title === 'Cognite') {
           document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/cognite/', '_blank'); };
           document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
         } else if (title === 'Moviez' && tag === 'UI/UX Design') {
