@@ -1292,8 +1292,8 @@
       </div>
     </section>
     <!-- Floating Info Box for Timeline Cards -->
-    <div id="timeline-float-info" style="display:none;position:fixed;z-index:99999 !important;pointer-events:none;min-width:240px;max-width:420px;padding:0;background:#fff;border-radius:1rem;box-shadow:0 4px 24px rgba(120,115,245,0.13),0 2px 8px rgba(0,0,0,0.10);border:2.5px solid #ff6ec4;transition:opacity 0.15s;opacity:0.97;background:rgba(255,255,255,0.98);border:2.5px solid #ff6ec4;pointer-events:none;overflow:hidden;text-align:center;">
-      <div id="timeline-float-info-content"></div>
+    <div id="timeline-float-info" style="display:none;position:fixed;z-index:2147483647;pointer-events:none;width:320px;height:220px;padding:0;background:#fff;border-radius:1rem;box-shadow:0 4px 24px rgba(120,115,245,0.13),0 2px 8px rgba(0,0,0,0.10);border:4px solid #ff6ec4;overflow:hidden;text-align:center;">
+      <img id="timeline-float-img" src="" alt="" style="width:100%;height:100%;object-fit:contain;display:block;background:#fff;border:2px solid #ff6ec4;z-index:2147483647;opacity:1;" />
     </div>
     <style>
       .timeline-view-section {
@@ -1639,75 +1639,65 @@
     });
   </script>
   <script>
-    // Floating info box for timeline cards (run after DOM is loaded)
+    // Timeline card hover image follows cursor
     window.addEventListener('DOMContentLoaded', function() {
       const floatBox = document.getElementById('timeline-float-info');
-      const floatBoxContent = document.getElementById('timeline-float-info-content');
+      const floatImg = document.getElementById('timeline-float-img');
+      // Map project names to image filenames
+      const imgMap = {
+        'Insta Posts Design': 'insta.png',
+        'Locker': 'locker.png',
+        'Logo Design': 'logoo.png',
+        'Poster Design': 'poster.png',
+        'Shot Chat': 'shotchat.png',
+        'Cognite': 'cognite.png',
+        'File Format Converter': 'format.png',
+        'ID Card Design': 'id-card.png',
+        'Password Manager': 'password.png',
+        'Portfolio Project': 'portfolio1.png',
+        'Portfolio Website': 'portfolio2.png',
+        'Portfolio': 'portfolio2.png',
+        'BWStory': 'BWStory.png',
+        'Pixels': 'pixels.png',
+        'Moviez': 'moviez.png'
+      };
       document.querySelectorAll('.timeline-view-item').forEach(card => {
         card.addEventListener('mouseenter', function(e) {
+          console.log('[timeline] mouseenter', this, e);
           const project = this.querySelector('.timeline-view-project').textContent.trim();
-          let img = '';
-          if (project === 'Insta Posts Design') {
-            img = '<img src="images/timeline/insta.png" alt="Insta Posts Design" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'Locker') {
-            img = '<img src="images/timeline/locker.png" alt="Locker" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'Logo Design') {
-            img = '<img src="images/timeline/logoo.png" alt="Logo Design" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'Poster Design') {
-            img = '<img src="images/timeline/poster.png" alt="Poster Design" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'Shot Chat') {
-            img = '<img src="images/timeline/shotchat.png" alt="Shot Chat" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'Cognite') {
-            img = '<img src="images/timeline/cognite.png" alt="Cognite" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'File Format Converter') {
-            img = '<img src="images/timeline/format.png" alt="File Format Converter" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'ID Card Design') {
-            img = '<img src="images/timeline/id card.png" alt="ID Card Design" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'Password Manager') {
-            img = '<img src="images/timeline/password.png" alt="Password Manager" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'Portfolio Project') {
-            img = '<img src="images/timeline/portfolio1.png" alt="Portfolio Project" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'Portfolio Website') {
-            img = '<img src="images/timeline/portfolio2.png" alt="Portfolio Website" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'Portfolio') {
-            img = '<img src="images/timeline/portfolio2.png" alt="Portfolio" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'BWStory') {
-            img = '<img src="images/timeline/BWStory.png" alt="BWStory" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'Pixels') {
-            img = '<img src="images/timeline/pixels.png" alt="Pixels" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          } else if (project === 'Moviez') {
-            img = '<img src="images/timeline/moviez.png" alt="Moviez" style="max-width:400px;max-height:400px;display:block;margin:auto;">';
-          }
-          if (img) {
-            floatBoxContent.innerHTML = img;
+          const imgFile = imgMap[project];
+          if (imgFile) {
+            floatImg.src = 'images/timeline/' + imgFile;
+            floatImg.alt = project;
+            floatImg.style.display = 'block';
+            floatBox.style.display = 'block';
+            console.log('[timeline] set image src:', floatImg.src, 'display:', floatImg.style.display);
           } else {
-            const content = this.querySelector('.timeline-view-content').innerHTML;
-            floatBoxContent.innerHTML = content;
+            floatImg.style.display = 'none';
+            floatBox.style.display = 'none';
+            console.log('[timeline] no image for project:', project);
           }
-          floatBox.style.display = 'block';
-          console.log('mouseenter on timeline card');
         });
         card.addEventListener('mousemove', function(e) {
-          const offsetX = 24;
-          const offsetY = 16;
-          let left = e.clientX + offsetX;
-          let top = e.clientY + offsetY;
-          const boxRect = floatBox.getBoundingClientRect();
-          const img = floatBoxContent.querySelector('img');
-          const imgW = img ? img.naturalWidth || 400 : 400;
-          const imgH = img ? img.naturalHeight || 400 : 400;
-          const maxW = Math.min(window.innerWidth - 20, 420);
-          const maxH = Math.min(window.innerHeight - 20, 420);
-          // Clamp box to viewport
-          if (left + maxW > window.innerWidth) left = window.innerWidth - maxW;
-          if (top + maxH > window.innerHeight) top = window.innerHeight - maxH;
-          floatBox.style.left = left + 'px';
-          floatBox.style.top = top + 'px';
-          console.log('mousemove on timeline card', e.clientX, e.clientY);
+          console.log('[timeline] mousemove', this, e);
+          if (floatBox.style.display === 'block') {
+            const offsetX = 24;
+            const offsetY = 16;
+            let left = e.clientX + offsetX;
+            let top = e.clientY + offsetY;
+            // Clamp box to viewport
+            const maxW = 340;
+            const maxH = 220;
+            if (left + maxW > window.innerWidth) left = window.innerWidth - maxW;
+            if (top + maxH > window.innerHeight) top = window.innerHeight - maxH;
+            floatBox.style.left = left + 'px';
+            floatBox.style.top = top + 'px';
+          }
         });
         card.addEventListener('mouseleave', function() {
+          console.log('[timeline] mouseleave', this);
           floatBox.style.display = 'none';
-          console.log('mouseleave on timeline card');
+          floatImg.style.display = 'none';
         });
       });
 

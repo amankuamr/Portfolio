@@ -256,6 +256,14 @@
     </section>
     <section>
       <div class="projects-list">
+        <div class="project-card" data-title="Reboot" data-tag="UI/UX Design">
+          <div class="project-title">Reboot</div>
+          <div class="project-date">15 July 2025</div>
+          <div class="project-desc">A productivity and focus web app UI/UX.</div>
+          <div style="margin-top:0.5em;">
+            <span class="project-tag figma">Figma</span>
+          </div>
+        </div>
         <div class="project-card" data-title="Moviez" data-tag="UI/UX Design">
           <div class="project-title">Moviez</div>
           <div class="project-date">11th July 2025</div>
@@ -309,7 +317,7 @@
             <span class="project-tag figma">Figma</span>
           </div>
         </div>
-      </div>
+              </div>
     </section>
   </main>
 
@@ -474,15 +482,30 @@
         document.getElementById('modalView').onclick = function() { window.open('https://amankuamr.github.io/Moviez', '_blank'); };
         var sourceBtn = document.getElementById('modalSource');
         sourceBtn.textContent = 'Design';
-        sourceBtn.onclick = function() { window.open('https://www.figma.com/proto/4ape8cXUQTdsbIITduIfPX/Untitled?page-id=0%3A1&node-id=1-2&p=f&viewport=311%2C204%2C0.41&t=HA3dTa6vGpPgcS2y-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2', '_blank'); };
+        sourceBtn.onclick = function() { window.open('https://www.figma.com/design/ly4V1454rxgFQtdPMqmhiX/Untitled?node-id=0-1&t=u1JeSejDvO7S8bXj-1', '_blank'); };
         var caseBtn = document.createElement('button');
         caseBtn.textContent = 'Case Study';
         caseBtn.onclick = function() { window.location.href = 'moviez-case-study.html'; };
         defaultActions.appendChild(caseBtn);
+      } else if (title === 'Reboot') {
+        document.getElementById('modalPortfolioActions').style.display = 'none';
+        document.getElementById('modalDefaultActions').style.display = 'flex';
+        document.getElementById('modalView').onclick = function() { window.open('https://rebooot.vercel.app', '_blank'); };
+        // Remove the View Source button
+        var sourceBtn = document.getElementById('modalSource');
+        sourceBtn.style.display = 'none';
+        // Add Design button as second
+        var designBtn = document.createElement('button');
+        designBtn.textContent = 'Design';
+        designBtn.onclick = function() { window.open('https://www.figma.com/design/aYaSvZRubf983rJa77ixLI/Untitled?node-id=0-1&t=DkZVvHHawQSeYNPD-1', '_blank'); };
+        var actions = document.getElementById('modalDefaultActions');
+        actions.insertBefore(designBtn, actions.children[1] || null);
       } else {
         document.getElementById('modalPortfolioActions').style.display = 'none';
         document.getElementById('modalDefaultActions').style.display = 'flex';
         document.getElementById('modalView').onclick = function() { alert('Demo link not set.'); };
+        var sourceBtn = document.getElementById('modalSource');
+        sourceBtn.style.display = '';
         document.getElementById('modalSource').onclick = function() { alert('Source link not set.'); };
       }
       document.getElementById('modalBackdrop').style.display = 'flex';
